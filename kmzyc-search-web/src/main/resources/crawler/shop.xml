@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dbcrawler>
+	<database>
+			<driverClassName>oracle.jdbc.driver.OracleDriver</driverClassName>
+			<dbURL>jdbc:oracle:thin:@10.1.6.151:1521:orcl</dbURL>
+			<username>kmopr</username>
+			<password>kmopr20170324</password>
+			<querySql>select * from SEARCH_SHOP_DATA_WHOLE</querySql>
+			<pageSize>500</pageSize>
+	</database>
+	
+	<!-- true ,whole ; false, increment -->	
+	<whole>true</whole>
+		
+	<esIndex>	
+		<indexDB>shop</indexDB>
+		<indexType>shop</indexType>
+		<indexId>SHOP_ID</indexId>
+	</esIndex>
+	
+	<fields>
+		<field column="SHOP_ID" 	 type="long"    indexField="id" />
+		<field column="SUPPLIER_ID" 	 type="long"    indexField="sid" />
+		<field column="SHOP_TYPE" 	 type="int"    indexField="shopType" />
+		<field column="SHOP_NAME" 	 type="string"    indexField="shopName" />
+		<field column="SHOP_TITLE" 	 type="string"    indexField="shopTitle" />
+		<field column="LOGO_PATH" 	 type="string"    indexField="logoPath" />
+		<field column="INTRODUCE" 	 type="string"    indexField="introduce" />
+		<field column="DEFAULT_DOMAIN_URL" 	 type="string"    indexField="domain" />
+		<field column="SHOP_LEVEL" 	 type="int"    indexField="level"/>
+		<field column="SHOP_SITE" 	 type="string"    indexField="shopSite"/>
+		<field column="SHOP_SEO_KEY" 	 type="string"    indexField="ssk"/>
+		<field column="AUDIT_TIME" 	 type="date"    indexField="audiTime"/>
+		<field column="MANAGE_BRAND" 	 type="string"    indexField="manageBrand"/>
+		<field column="SERVICE_QQ" 	 type="string"    indexField="contact" />
+		<field column="SERVICE_TYPE" 	 type="int"    indexField="contacType" />
+		<field column="CORPORATE_NAME" 	 type="string"    indexField="corpName" />
+		<field column="CORPORATE_LOCATION" 	 type="string"    indexField="corpAddr" />
+		<field column="PROVINCE" 	 type="string"    indexField="province" />
+		<field column="CITY" 	 type="string"    indexField="city" />
+		<field column="AREA" 	 type="string"    indexField="area" />
+		<field column="DESC_SCORE" 	 type="long"    indexField="descScore" />
+		<field column="SPEED_SCORE" 	 type="long"    indexField="speedScore" />
+		<field column="DIST_SCORE" 	 type="long"    indexField="distScore" />
+		<field column="SALE_SCORE" 	 type="long"    indexField="saleScore" />
+	</fields>
+
+</dbcrawler>

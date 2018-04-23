@@ -1,0 +1,43 @@
+/** ‰»ÎøÚ¥ÌŒÛÃ· æ**/
+label.error {
+	background: url(/etc/images/li_err.gif) no-repeat;
+	font: 12px/1 verdana, simsun, sans-serif;
+	margin: 0;
+	padding-left: 20px;
+	height: 20px;
+	line-height: 20px;
+	margin-left: 10px;
+}
+
+label.checked {
+	background: url(/etc/images/li_ok.gif) no-repeat;
+	font: 12px/1 verdana, simsun, sans-serif;
+	margin: 0;
+	padding-left: 20px;
+	height: 20px;
+	line-height: 20px;
+	margin-left: 10px;
+}
+
+p#vtip {
+	position: absolute;
+	padding: 5px;
+	left: 5px;
+	font-size: 0.8em;
+	background-color: white;
+	border: 1px solid #a6c9e2;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	z-index: 9999;
+}
+
+p#vtip #vtipArrow {
+	position: absolute;
+	top: -10px;
+	left: 5px
+}
+
+.input_validation-failed {
+	border: 2px solid #FF0000;
+	color: red;
+}

@@ -1,0 +1,62 @@
+{
+  "supply": {
+    "_all": {
+      "enabled": false
+    },
+    "properties": {
+      "id": {
+        "type": "long",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "marketId": {
+        "type": "long",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "marketName": {
+        "type": "string",
+        "copy_to": "text",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      },
+      "categoryId": {
+        "type": "long",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "categoryName": {
+        "type": "string",
+        "copy_to": "text",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      },
+      "specificationsId": {
+        "type": "long",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "specifications": {
+        "type": "string",
+        "copy_to": "text",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      },
+      "placeId": {
+        "type": "long",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "palce":{
+      	"type": "string",
+        "copy_to": "text",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      }
+    }
+  }
+}

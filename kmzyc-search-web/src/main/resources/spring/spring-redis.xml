@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<bean id="jedisClusterConfiguration"
+		  class="org.springframework.data.redis.connection.RedisClusterConfiguration">
+		<property name="clusterNodes">
+			<set>
+				<bean class="org.springframework.data.redis.connection.RedisNode">
+					<constructor-arg value="${redis.host_1}"/>
+					<constructor-arg value="${redis.port_1}" type="int"/>
+				</bean>
+				<bean class="org.springframework.data.redis.connection.RedisNode">
+					<constructor-arg value="${redis.host_2}"/>
+					<constructor-arg value="${redis.port_2}" type="int"/>
+				</bean>
+				<bean class="org.springframework.data.redis.connection.RedisNode">
+					<constructor-arg value="${redis.host_3}"/>
+					<constructor-arg value="${redis.port_3}" type="int"/>
+				</bean>
+			</set>
+		</property>
+	</bean>
+	<bean id="jedisConnFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<constructor-arg ref="jedisClusterConfiguration"/>
+		<constructor-arg name="poolConfig">
+            <bean class="redis.clients.jedis.JedisPoolConfig">
+                <property name="maxIdle" value="${redis.maxIdle}"/>
+                <property name="minIdle" value="${redis.minIdle}"/>
+                <property name="maxTotal" value="${redis.maxTotal}"/>
+            </bean>
+        </constructor-arg>
+	</bean>
+	<!-- redis template definition -->
+	<bean id="redisTemplate" name="redisTemplate"
+		class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="jedisConnFactory" />
+		<property name="defaultSerializer">
+			<bean class="org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer" />
+		</property>
+	</bean>
+
+</beans>

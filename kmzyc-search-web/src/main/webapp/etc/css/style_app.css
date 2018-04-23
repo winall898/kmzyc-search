@@ -1,0 +1,460 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+.auto_hidden {
+	width: 204px;
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+	border-left: 1px solid #333;
+	border-right: 1px solid #333;
+	position: absolute;
+	display: none;
+}
+
+.auto_show {
+	width: 204px;
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+	border-left: 1px solid #333;
+	border-right: 1px solid #333;
+	position: absolute;
+	z-index: 9999; 
+	display: block;
+}
+
+.auto_onmouseover {
+	color: #ffffff;
+	background-color: highlight;
+	width: 100%;
+}
+
+.auto_onmouseout {
+	color: #000000;
+	width: 100%;
+	background-color: #ffffff;
+}
+/** 查询列表样式 **/
+.list_table{
+	  vertical-align:middle;
+	  text-align:center;
+      border-collapse: collapse;
+      border: 1px solid #C8D9CF;
+      margin-top: 15px;
+}
+.rule_table_list{
+	  vertical-align:middle;
+      border-collapse: collapse;
+      border: 0px solid #C8D9CF;
+      margin-top: 5px;
+}
+.list_table th{
+    border: 1px solid #ddd;
+	background-color: #f5f5f5; 
+	color: #336699; 
+	font-size:12px;
+	font-weight: bold; 
+	text-align: center;
+	height:50px;
+}
+.list_table tr{
+    border: 1px solid #ddd;
+    text-align: center;
+    height:30px;
+}
+.list_table td{
+    border: 1px solid #ddd;
+    text-align: center;
+    color:#606060;
+    font-family: Arial,宋体;
+    font-size: 12px;
+    word-wrap:break-word;
+    word-break:break-all;
+}
+.list_table td a{
+	color:#336699;
+	}
+	
+.list_table td .alter:hover{background-color: #def2fa;}	
+	
+
+.list_table tr:nth-child(even){
+   background-color: #f5f5f5;		 
+}
+/**编辑表格样式 **/
+.edit_table{
+  margin-top:30px;
+  margin-left:30px;
+  border:1px solid #CDD7E1;
+}
+.edit_table tr{
+   background: #fff;
+   height:35px;
+   color:#656766;
+   font-weight: normal;
+    text-align: left;
+    border:1px solid #CDD7E1;
+}
+.edit_table td{
+	clear:both;
+	border:1px solid #ddd;
+	 font-family: Arial,宋体;
+    font-size: 12px;
+}
+.edit_table td  input{
+   border: 1px solid #CBCBCB;
+   height:30px;
+}
+.edit_table td  textarea{
+   border: 1px solid #CBCBCB;
+   width:450px;
+   height:104px;
+}
+.eidt_rowTitle{
+	padding-left:30px;
+}
+.edit_title{
+    background: #f5f5f5;
+    color:#336699;
+    font-size:16px;
+    font-weight:bold;
+    height:30px;
+    padding-left:30px;
+}
+.edit_bottom{
+      margin-top:30px;
+      margin-left:30px;
+}
+/**查询条件表格样式**/
+.content_table td{
+	 color:#999;
+	font-family: Arial,宋体;
+    font-size: 13px;
+	line-height: 25px;
+}
+/** 分页模块样式 **/
+.page_table{
+	 margin-top:10px;
+     height:30px;
+     background-color: #E2E0E1;
+     vertical-align: middle;
+}
+/**按钮的样式**/
+.addBtn{
+	width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background-image: url(/etc/images/button/btn1.png);
+	
+	cursor: pointer;
+
+}
+.addBtn:hover{
+	width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background: url(/etc/images/button/btn1_1.png);
+	
+}
+.delBtn{
+	width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background-image: url(/etc/images/button/btn2.png);
+	cursor: pointer;
+	
+}
+.delBtn:hover{
+	width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background: url(/etc/images/button/btn2_1.png);
+}
+.queryBtn{
+	width:68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background-image: url(/etc/images/button/btn5.png);
+	cursor: pointer;
+
+}
+.queryBtn:hover{
+	width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background: url(/etc/images/button/btn5_1.png);
+}
+.saveBtn{
+    width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background: url(/etc/images/button/btn3.png);
+	cursor: pointer;
+}
+.saveBtn:honver{
+    width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background: url(/etc/images/button/btn3_1.png);
+}
+.backBtn{
+	width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background: url(/etc/images/button/btn4.png);
+	cursor: pointer;
+}
+.backBtn:hover{
+	width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background: url(/etc/images/button/btn4_1.png);
+}
+.refreshBtn{
+	width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background: url(/etc/images/button/gengxin1.png);
+	cursor: pointer;
+}
+.refreshBtn:hover{
+	width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background: url(/etc/images/button/gengxin1_1.png);
+}
+
+.btn-custom{color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+    background-color: #336699;
+    background-image: -moz-linear-gradient(top,#62c462,#51a351);
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#3d72a7),to(#336699));
+    background-image: -webkit-linear-gradient(top,#3d72a7,#336699);
+    background-image: -o-linear-gradient(top,#62c462,#51a351);
+    background-image: linear-gradient(to bottom,#3d72a7,#336699);
+    background-repeat: repeat-x;
+    border-color: #6184a7 #3d72a7 #2d6195;
+    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462',endColorstr='#ff51a351',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+	display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    line-height: 20px;
+	text-align: center;
+	vertical-align: middle;
+    cursor: pointer;
+	border: 1px solid #ccc;
+    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+    border-bottom-color: #b3b3b3;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+	}
+
+/**输入框错误提示**/
+label.error{  
+ background: url(/etc/images/li_err.gif) no-repeat ; 
+ font: 12px/1 verdana, simsun, sans-serif;  
+ margin: 0;  
+ padding-left:20px; 
+ height: 20px;
+ line-height: 20px;
+ margin-left:10px;
+ } 
+ 
+ label.checked{
+ background: url(/etc/images/li_ok.gif) no-repeat ; 
+ font: 12px/1 verdana, simsun, sans-serif;  
+ margin: 0;  
+ padding-left:20px; 
+ height: 20px;
+ line-height: 20px;
+ margin-left:10px;
+	}
+/* 客户类别输入表格 */
+.tableInput1 {
+	margin-top: 30px; margin-bottom: 15px;
+	background-color:#f2f8ff;
+    border-collapse: collapse;
+}
+.tableInput1 th {
+	color:#9E9E9E;
+    font-weight:normal;
+	padding-right: 6px;
+	height: 18px;
+}
+.tableInput1 td {
+	color:#9E9E9E;
+	padding-left: 8px;
+	height: 17px;
+}
+.tableInput1 td  input{
+   border: 1px solid #CBCBCB;
+   height:25px;
+}
+.inputText{
+   border: 1px solid #CBCBCB;
+   height:18px;
+   width: 40px;
+   
+}
+.tableInput1 th.modeltitle {
+    background-color: #DBE4ED;
+	height: 18px;
+	color:#000000;
+    font-weight:bold;
+	padding-left: 20px;
+}
+
+/*输入框样式*/
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input{background-color: #fff;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-transition: border linear .2s,box-shadow linear .2s;
+    -moz-transition: border linear .2s,box-shadow linear .2s;
+    -o-transition: border linear .2s,box-shadow linear .2s;
+    transition: border linear .2s,box-shadow linear .2s;
+	display: inline-block;
+    height: 30px;
+    padding: 4px 6px;
+    margin-bottom: 3px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555;
+    vertical-align: middle;
+	}
+/*新增样式*/
+.batchDelBtn{
+	width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background-image: url(/etc/images/button/btn2.png);
+    cursor: pointer;
+}
+.batchDelBtn:hover{
+	width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background: url(/etc/images/button/btn2_1.png);
+}
+
+.upShelfBtn{
+	width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background-image: url(/etc/images/button/btn_up.png);
+    cursor: pointer;
+}
+.upShelfBtn:hover{
+	width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background: url(/etc/images/button/btn_up2.png);
+}
+.downShelfBtn{
+	width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background-image: url(/etc/images/button/btn_down.png);
+    cursor: pointer;
+}
+.downShelfBtn:hover{
+	width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background: url(/etc/images/button/btn_down2.png);
+}
+
+
+.table_search th{
+		color: #999;
+    font-family: Arial,宋体;
+    font-size: 13px;
+    line-height: 25px;
+    font-weight: normal;}
+.table_search td{
+		color: #999;
+    font-family: Arial,宋体;
+    font-size: 13px;
+    line-height: 25px;
+    font-weight: normal;}
+	
+.addBtnUploadAll{
+	width: 96px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background-image: url(/etc/images/button/btnuploadall.png);}
+	
+.addBtnUploadAll:hover{
+	width: 96px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background-image: url(/etc/images/button/btnuploadall_1.png);
+}
+.publishBtn{
+    width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background: url(/etc/images/button/btn7.png);
+}
+.publishBtn:honver{
+    width: 68px;
+	height: 30px;
+	border: none;
+	text-align:center;
+	vertical-align:middle;
+    background: url(/etc/images/button/btn7_1.png);
+}	
+	
+	

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<base target="main" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="/etc/css/style_sys_skin.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript">
+function showmenu(targetid,img){
+    if (document.getElementById){
+        target=document.getElementById(targetid);
+            if (target.style.display=="block"){
+                target.style.display="none";
+                img.src="/etc/images/sys/menu_off.png";
+            } else {
+                target.style.display="block";
+                img.src="/etc/images/sys/menu_on.png";
+            }
+    }
+}
+</script>
+</head>
+<body style="background-color:transparent;">
+<jsp:include flush="true" page="/pages/html/common/sessionJudge.html"/>
+<#if menuList?? && menuList?size gt 0>
+	<#list menuList as menu>
+		<#if menu.subMenuList?? && menu.subMenuList?size gt 0>
+			<div class="menubox">
+				<div class="menuTitle">
+					<div class="menuico" style="cursor: hand" onclick="showmenu('ff'+'${menu.menuId}','image'+'${menu.menuId}');">
+						<img src="/etc/images/sys/menu_off.png" id="image${menu.menuId}" name="image${menu.menuId}" onclick="return false;" /> 
+					</div>
+					<div class="menutext">
+						<#if menu.menuLink !=null && menu.menuLink != ''>
+							<a href="${menu.menuLink}" class="menutexts" target="main">${menu.menuName}</a>
+						<#else>
+							<span style="cursor:pointer;" class="menutexts" onclick="showmenu('ff'+'${menu.menuId}','image'+'${menu.menuId}');">${menu.menuName}</span>
+						</#if>
+					</div>
+				</div>
+				<div class="menutexts" id="ff${menu.menuId}" style="display: none;">
+					<#list menu.subMenuList as subMenu>
+					   	<ul>
+							<li>
+								<p>
+									<a href="${subMenu.menuLink}" class="menutexts" target="main">${subMenu.menuName}</a>
+								</p>
+							</li>
+						</ul>
+					</#list>
+				</div>
+			</div>
+		<#else>
+			<div class="menumaintexts">
+				 <ul>
+					<li>
+						<p>
+							<a href="${menu.menuLink}" class="menutexts" target="main">${menu.menuName}</a>
+						</p>
+					</li>
+				</ul>
+			</div>
+		</#if>
+	</#list>
+</#if>
+</body>
+</html>

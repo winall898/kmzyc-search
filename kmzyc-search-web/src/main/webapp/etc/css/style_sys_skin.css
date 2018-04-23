@@ -1,0 +1,126 @@
+﻿body,p,td,input,option,textarea,select{color:#333;font:12px "Microsoft YaHei",微软雅黑,"Helvetica Neue",Helvetica,Arial,sans-serif}
+body,form,ul,li,p,ol{margin:0;padding:0;}
+body{text-align:center;}
+iframe::-webkit-scrollbar-track {background-color: #EEEEEE;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
+iframe::-webkit-scrollbar-thumb {background-color: #ccc; -webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
+iframe::-webkit-scrollbar-button {background-color: none;}
+iframe::-webkit-scrollbar-corner {background-color: black;}
+iframe::-webkit-scrollbar {width: 6px;}
+img{border:0}
+ul{list-style-type:none}
+a{color:#000;background:inherit}
+a:hover{color:#FF0000;background:inherit}
+.menutexts{font-family:"宋体";font-size:12px;color:#000;text-decoration:none; line-height: 20px;}
+a.menutexts:link{color:#000;text-decoration:none;}
+a.menutexts:hover{color:#F00;text-decoration:underline}
+.black_0{font-family:"宋体";font-size:12px;color:#000;text-decoration:none}
+a.black_0:link{color:#000;text-decoration:none}
+a.black_0:hover{color:#F00;text-decoration:underline}
+.black_num{font:11px Verdana,Arial,sans-serif;color:#000;text-decoration:none}
+a.black_num:link{color:#000;text-decoration:none}
+a.black_num:hover{color:#F00;text-decoration:underline}
+.black_num_b{font:11px Verdana,Arial,sans-serif;color:#000;font-weight:bold;text-decoration:none}
+a.black_num_b:link{color:#000;text-decoration:none}
+a.black_num_b:hover{color:#F00;text-decoration:underline}
+.red_num_b{font:11px Verdana,Arial,sans-serif;color:#F00;font-weight:bold;text-decoration:none}
+a.red_num_b:link{color:#F00;text-decoration:none}
+a.red_num_b:hover{color:#C00;text-decoration:underline}
+.formTitle{font-family:"宋体";font-size:14px;color:#FFF;font-weight:bold;text-decoration:none}
+a.formTitle:link{color:#000;text-decoration:none}
+a.formTitle:hover{color:#F00;text-decoration:underline}
+.red{font-family:"宋体";font-size:12px;color:#F00;text-decoration:none}
+a.red:link{color:#F00;text-decoration:none}
+a.red:hover{color:#C00;text-decoration:underline}
+.blue{font-family:"宋体";font-size:12px;color:#00F;text-decoration:none}
+a.blue:link{color:#00F;text-decoration:none}
+a.blue:hover{color:#F00;text-decoration:underline}
+.white{font-family:"宋体";font-size:12px;color:#FFF;text-decoration:none}
+a.white:link{color:#FFF;text-decoration:none}
+a.white:hover{color:#F00;text-decoration:underline}
+.red_a{font-family:"宋体";font-size:12px;color:#AE0000}
+.blue_0{font-family:"宋体";font-size:12px;color:#000499}
+.input{border:1px solid #8D8FBD;color:#000;height:16px;padding:4px 0 0 4px}
+.textarea{border:1px solid #8D8FBD;color:#000;padding:3px 0px 0px 4px}
+.button {font-family:"宋体";font-size:12px;color:#333333;background-color:#03CAFF;cursor:hand;padding:3px;height:22px;border-top:1px solid #DADAE9;border-right:1px solid #666666;border-bottom:1px solid #666666;border-left:1px solid #DADAE9}
+
+/*头部样式*/
+#tabsI{float:left;width:80%;font-size:16px;margin-top: 10px;}
+#tabsI ul{margin:0;padding:3px 10px 0 20px;list-style:none}
+#tabsI li{position:relative;z-index:1;display:block;text-align:center;-webkit-flex:1;-moz-flex:1;-ms-flex:1;flex:1;padding-left: 7px;float: left;overflow: hidden;}
+#tabsI a{float:left;margin:0;text-decoration:none;border: 1px #336699 solid;vertical-align:bottom;margin:0 2px;transition:background-color .2s,color .2s;background:-moz-linear-gradient(top,#fdfeff,#cae5f2);background:-webkit-gradient(linear,top,from(#fdfeff),to(#cae5f2));background:-webkit-linear-gradient(top,#fdfeff,#cae5f2);background:-o-linear-gradient(top,#fdfeff,#cae5f2);color:#369;transition:background-color .2s,color .2s;border-radius:5px;line-height:35px; background-color: #cae5f2;}
+#tabsI a:hover{float:left;margin:0;text-decoration:none;border: 1px #336699 solid;vertical-align:bottom;margin:0 2px;transition:background-color .2s,color .2s;background:-moz-linear-gradient(top,#3D79B6,#336699);background:-webkit-gradient(linear,top,from(#3D79B6),to(#336699));background:-webkit-linear-gradient(top,#3D79B6,#336699);background:-o-linear-gradient(top,#3D79B6,#336699);color:#369;transition:background-color .2s,color .2s;border-radius:5px;line-height:35px; background-color: #336699;}
+#tabsI a i{padding-left: 5px; vertical-align: middle; display:inline-block;width:25px;height:25px;line-height:25px;}
+#tabsI a:hover i{color: #fff;}
+#tabsI a span{padding:8px 18px 8px 0;text-transform:uppercase;letter-spacing:1px;font-weight:500;font-size:14px}
+#tabsI a span{float:none}
+#tabsI a:hover span{color:#FFF;}
+#tabsI a span{float:none}
+#tabsI a:hover span{color:#FFF}
+#tabsI a:hover{background-position:0 top}
+#tabsI a:hover span{background-position:100% top}
+#tabsI .current a{background-position:0 top}
+#tabsI .current a span{background-position:100% top;}
+
+.tabsii{width: 20%;float: right;text-align: center;color: #fff;vertical-align: middle;margin-top: 23px;}
+.tabsii img{vertical-align: middle;}
+/*头部样式结果*/
+
+#header_common{background:#DCDBEA url(/etc/images/top_backgroud.jpg) top left;height:76px;text-align:left}
+#header_qq{background:#3399CC;height:76px; border-bottom:4px solid #336699;text-align:left;min-width:1680px;}
+
+
+
+#menutop{background:#C8F5FF url(/etc/images/sys/menu_top.gif) no-repeat top left;width:180px;height:86px}
+#menutop p{padding:9px 0px 0px 16px;line-height:1.5em;color:#666;text-align:left}
+#menubg{width:170px;bottom:0; height: 100%; position: absolute; background-color: #F1F9FC; left: 0;}
+
+.menubox{padding:0px;float: left;}
+.menuTitle{padding-left: 15px;width: 160px;background: #C7E3F1;border-bottom: 1px solid #fff;height: 35px;line-height: 35px;vertical-align: middle;}
+.menuico{float:left;width:19px;height:12px;text-align:center;vertical-align: middle;}
+.menupic{float:right;width:20px;height:13px}
+.menutext{float:right;width:135px;text-align:left}
+.menutexts{clear:both;padding:0px;line-height: 35px;}
+.menutexts ul{background-color: #DEF2FA;}
+.menutexts li{color:#616161; border-bottom:1px solid #fff;}
+.menutexts li:hover{background-color: #3399CC;}
+.menutexts li:hover p{color:#fff;}
+.menutexts li p{padding:0px 0px 0px 45px;font-size:0px;text-align:left;font-family: -webkit-body;}
+.menutexts li p a:after{content:">";width: 4px; height: 9px;position: absolute;    font-size: 12px;  left: 23px;  margin-left: 9px;}
+.menutexts li:hover p a{color:#fff;text-decoration : none;display:block;}
+.menutext span{ display: block;}
+
+
+.menuboxDiv{padding:0px;width:158px}
+.menuTitleDiv{padding-top:4px;width:158px;height:20px;background:#FFF}
+.menuicoDiv{float:left;padding-top:1px;width:19px;height:11px;text-align:right}
+.menupicDiv{float:right;width:28px;height:13px}
+.menutextDiv{float:right;width:111px;text-align:left}
+.menutextsDiv{clear:both;padding:0px;width:158px}
+.menutextsDiv ul{margin:0;padding:0}
+.menutextsDiv li{background:#FFF url(/etc/images/sys/menu_ico2.gif) no-repeat top left;width:158px;height:18px}
+.menutextsDiv li p{padding:4px 0px 0px 47px;font-size:12px;text-align:left}
+
+.menumaintexts{clear:both;padding:0 0 0 20px;width:158px;height:35px;background: #C7E3F1;border-bottom:1px solid #fff;line-height:35px;vertical-align: middle;}
+.menumaintexts li{background:#C7E3F1 url(/etc/images/sys/menu_on.png) no-repeat  left;width:158px;height:35px;vertical-align: middle;}
+.menumaintexts li p{padding:0px 0px 0px 20px;text-align:left;}
+
+#menudi{background:#C8F5FF url(/etc/images/sys/menu_di.gif) no-repeat top left;width:180px;height:11px}
+
+
+
+#compart_common{background:#079346 url(/etc/images/sys/compart_line.gif) top left;width:5px;height:800px}
+#compart_common p{padding-top:240px;text-align:left}
+#compart_qq{background-color:#336699; min-height:660px; height: 100%; position: absolute;}
+#compart_qq p{padding-top:400px;text-align:left; cursor: pointer;}
+
+
+
+#content{margin:0px;padding-left:4px;text-align:center}
+.contentclear{clear:both;margin:0px;padding:0px;height:10px;font-size:0px;}
+.tbox{margin:0 auto;border:1px solid #0095E1}
+.trboxtop{height:32px;border:1px solid #FFF;background:#1AB1FF}
+.trboxtop p{padding:10px 0px 0px 0px}
+.trboxbg{padding:15px 0px;border:1px solid #FFF;background:#EFFDFF}
+.trboxdi{height:20px;border:1px solid #FFF;background:#1AB1FF}
+
+#footer{background:#C8F5FF url(/etc/images/sys/bottom_bg.gif) top left;height:14px}

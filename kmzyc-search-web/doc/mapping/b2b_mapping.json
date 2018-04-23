@@ -1,0 +1,327 @@
+{
+  "b2b": {
+    "_all": {
+      "enabled": false
+    },
+    "properties": {
+      "id": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "skucode": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "unit": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "prodId": {
+        "type": "integer",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "price": {
+        "type": "double",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "mprice": {
+        "type": "double",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "sprice": {
+        "type": "double",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "bottomAmount": {
+        "type": "long",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "marketId": {
+        "type": "integer",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "marketName": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "sales": {
+        "type": "long",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "attrname": {
+        "type": "string",
+        "copy_to": "attributes",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "attrval": {
+        "type": "string",
+        "copy_to": "attributes",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "attrval_cp": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "opname": {
+        "type": "string",
+        "copy_to": "attributes",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "opval": {
+        "type": "string",
+        "copy_to": "attributes",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "prodName": {
+        "type": "string",
+        "copy_to": "text",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      },
+      "prodName_cp": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "prodTitle": {
+        "type": "string",
+        "copy_to": [
+          "text",
+          "prodTitle_cp"
+        ],
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      },
+      "prodTitle_cp": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "subtitle": {
+        "type": "string",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      },
+      "keyword": {
+        "type": "string",
+        "copy_to": "text",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      },
+      "prodHot": {
+        "type": "long",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "brandId": {
+        "type": "integer",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "brandName": {
+        "type": "string",
+        "copy_to": "text",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "cTime": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis||date_time"
+      },
+      "upTime": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis||date_time"
+      },
+      "approType": {
+        "type": "integer",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "approNum": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "pcId": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "pcName": {
+        "type": "string",
+        "copy_to": "text",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "pcCode": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "image": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "stock": {
+        "type": "long",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "scode": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "pno": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "drugId": {
+        "type": "integer",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "drugCode": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "channel": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "grade": {
+        "type": "double",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "pnum": {
+        "type": "long",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "browse": {
+        "type": "long",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "foCode": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "soCode": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "toCode": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "ocName": {
+        "type": "string",
+        "copy_to": [
+          "text",
+          "ocName_ik"
+        ],
+        "index": "not_analyzed",
+        "store": true
+      },
+      "ocName_ik": {
+        "type": "string",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": false
+      },
+      "promotion": {
+        "type": "integer",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "supType": {
+        "type": "integer",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "shopName": {
+        "type": "string",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      },
+      "shopId": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "prodType": {
+        "type": "integer",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "attributes": {
+        "type": "string",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": false
+      },
+      "shopgory": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "san_ss": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "sav_cns": {
+        "type": "string",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      },
+      "sav_ss": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "text": {
+        "type": "string",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": false
+      },
+      "_version_": {
+        "type": "long",
+        "index": "not_analyzed",
+        "store": true
+      }
+    }
+  }
+}

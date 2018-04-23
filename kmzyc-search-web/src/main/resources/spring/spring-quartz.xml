@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/jee
+    http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+    <bean name="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+       <property name="applicationContextSchedulerContextKey" value="applicationContext"/>
+        <property name="configLocation" value="classpath:config/quartz.properties"/>
+        <!-- 这个是必须的，QuartzScheduler 延时启动，应用启动完后 QuartzScheduler 再启动 -->
+		<!-- <property name="startupDelay" value="30"/> -->
+        <property name="triggers"> 
+            <list>
+                <ref bean="b2bDIHTrigger" />
+                <ref bean="b2bPROTrigger" />
+                <ref bean="shopDIHTrigger" />
+                <ref bean="shopPROTrigger" />
+                <ref bean="b2bSuggestIndexJobTrigger" />
+                <ref bean="supplyDIHTrigger" />
+            </list>
+        </property>
+    </bean>
+    
+    <!-- B2B 提示词索引任务 -->
+    <bean id="b2bSuggestIndexJob" class="com.kmzyc.search.app.schedul.B2BSuggestIndexJob" />
+    <bean id="b2bSuggestIndexJobDetail"  
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
+        <property name="targetObject">  
+            <ref bean="b2bSuggestIndexJob" />  
+        </property>  
+        <property name="targetMethod">  
+            <value>execute</value>  
+        </property>  
+    </bean>
+    <bean id="b2bSuggestIndexJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">  
+        <property name="jobDetail">  
+            <ref bean="b2bSuggestIndexJobDetail" />  
+        </property>
+        <property name="cronExpression">  
+             <value>0 30 5 * * ?</value>
+        </property>  
+    </bean>
+    
+    <!-- 产品索引全量任务 -->
+    <bean id="b2bDIHJob" class="com.kmzyc.search.app.schedul.B2BDIHJob" />
+    <bean id="b2bDIHJobDetail"  
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
+        <property name="targetObject">  
+            <ref bean="b2bDIHJob" />  
+        </property>  
+        <property name="targetMethod">  
+            <value>execute</value>  
+        </property>  
+    </bean>
+    <bean id="b2bDIHTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">  
+        <property name="jobDetail">  
+            <ref bean="b2bDIHJobDetail" />  
+        </property>
+        <property name="cronExpression">  
+             <value>0 30 4 * * ?</value> 
+        </property>  
+    </bean>
+    
+    <!-- 产品存储过程全量同步数据任务 -->
+    <bean id="b2bPROJob" class="com.kmzyc.search.app.schedul.B2BPROJob" />
+    <bean id="b2bPROJobDetail"  
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
+        <property name="targetObject">  
+            <ref bean="b2bPROJob" />  
+        </property>  
+        <property name="targetMethod">  
+            <value>execute</value>  
+        </property>  
+    </bean>
+    <bean id="b2bPROTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">  
+        <property name="jobDetail">  
+            <ref bean="b2bPROJobDetail" />  
+        </property>
+        <property name="cronExpression">  
+            <value>0 0 4 * * ?</value>
+        </property>  
+    </bean>
+    
+    <!-- 店铺全量索引任务 -->
+    <bean id="shopDIHJob" class="com.kmzyc.search.app.schedul.ShopDIHJob" />
+    <bean id="shopDIHJobDetail"  
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
+        <property name="targetObject">  
+            <ref bean="shopDIHJob" />  
+        </property>  
+        <property name="targetMethod">  
+            <value>execute</value>  
+        </property>  
+    </bean>
+    <bean id="shopDIHTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">  
+        <property name="jobDetail">  
+            <ref bean="shopDIHJobDetail" />  
+        </property>
+        <property name="cronExpression">  
+            <value>0 10 3 * * ?</value>  
+        </property>  
+    </bean>
+    
+     <!-- 店铺存储过程全量同步数据任务 -->
+    <bean id="shopPROJob" class="com.kmzyc.search.app.schedul.ShopPROJob" />
+    <bean id="shopPROJobDetail"  
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
+        <property name="targetObject">  
+            <ref bean="shopPROJob" />  
+        </property>  
+        <property name="targetMethod">  
+            <value>execute</value>  
+        </property>  
+    </bean>
+    <bean id="shopPROTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">  
+        <property name="jobDetail">  
+            <ref bean="shopPROJobDetail" /> 
+        </property>
+        <property name="cronExpression">  
+            <value>0 10 2 * * ?</value>
+        </property>  
+    </bean>
+    
+    <!-- supply索引全量任务 -->
+    <bean id="supplyDIHJob" class="com.kmzyc.search.app.schedul.SupplyDIHJob" />
+    <bean id="supplyDIHJobDetail"  
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
+        <property name="targetObject">  
+            <ref bean="supplyDIHJob" />  
+        </property>  
+        <property name="targetMethod">  
+            <value>execute</value>  
+        </property>  
+    </bean>
+    <bean id="supplyDIHTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">  
+        <property name="jobDetail">  
+            <ref bean="supplyDIHJobDetail" />  
+        </property>
+        <property name="cronExpression">  
+             <value>0 29 15 * * ?</value> 
+        </property>  
+    </bean>
+    
+</beans>

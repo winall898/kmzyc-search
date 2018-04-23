@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"  
+	"http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+<urlrewrite>
+	<rule>
+		<!-- 品牌查询 -->
+		<from>/10/b-list-(\w*).html</from>
+		<to type="forward">/10/brandSearch?bid=$1</to>
+	</rule>
+	<rule>
+		<!-- 类目查询 -->
+		<from>/10/c-list-(\w*).html</from>
+		<to type="forward">/10/operCateSearch?oid=$1</to>
+	</rule>
+	<rule>
+		<!-- 康美中药城商家店铺首页 -->
+		<from>/10/shop/s-index-(\w*).html</from>
+		<to type="forward">/10/shop/search?shopid=$1</to>
+	</rule>
+</urlrewrite>
+

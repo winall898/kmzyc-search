@@ -1,0 +1,83 @@
+body{font-family: "Microsoft YaHei" ! important;}
+.input_style01{width:250px;height:25px;line-height:25px;border:1px solid #bbbbbb;}
+.input_style02{width:60%;height:30px;line-height:30px;border:1px solid #bbbbbb;margin-top:5px;margin-bottom:5px;}
+.input_style03{width:250px;height:25px;line-height:25px;border:1px solid #bbbbbb;margin-top:5px;margin-bottom:5px;}
+.input_style04{width:60%;border:1px solid #bbbbbb;margin-top:5px;margin-bottom:5px;}
+.input_style05{width:35px;border:1px solid #bbbbbb;margin-top:5px;margin-bottom:5px;}
+.input_style06{width:60px;border:1px solid #bbbbbb;margin-top:5px;margin-bottom:5px;}
+
+
+
+
+
+
+.sel_style01{width:100px;height:30px;line-height:30px;border:1px solid #bbbbbb;}
+
+
+
+.button_style01{
+	background-color:#43a941;
+	width:60px;
+	height:25px;
+	line-height:25px;
+	border:0;
+	color:#fff;
+	cursor:pointer;
+}
+
+
+
+.button_style02{
+	background-color:#43a941;
+	width:60px;
+	height:25px;
+	line-height:25px;
+	border:1px solie #3a9338;
+	color:#fff;
+	cursor:pointer;
+}
+
+.button_style03{
+	background-color:#43a941;
+	width:60px;
+	height:25px;
+	line-height:25px;
+	border:0;
+	color:#fff;
+	cursor:pointer;
+	border-radius:4px;
+	text-align:center;
+}
+
+.button_style04{
+	background-color:#008000;
+	width:81px;
+	height:35px;
+	line-height:35px;
+	border:0;
+	color:#fff;
+	cursor:pointer;
+	border-radius:4px;
+	text-align:center;
+	font-family:"Î¢ÈíÑÅºÚ";
+	font-weight:bold;
+	margain-left:10px;
+}
+
+
+.td_left{
+	padding-left:10px;
+}
+
+
+
+.text_style01{
+	color:#008000;
+	font-size:18px;
+	font-weight:bold;
+	font-family: "Microsoft YaHei" ! important;
+}
+
+
+
+

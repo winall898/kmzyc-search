@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<!-- 头部 -->
+	<definition name="b2bSearchHead" template="/html/common/b2b/search-head.html"></definition>
+	<!-- 底部 -->
+	<definition name="b2bSearchEnd" template="/html/common/b2b/search-foot.html"></definition>
+	<!-- 搜索过滤条件 -->
+	<definition name="b2bSearchFiltrate" template="/WEB-INF/jsp/b2b/template/searchFiltrate.jsp"></definition>
+	<!-- 搜索结果排序 -->
+	<definition name="b2bSearchSort" template="/WEB-INF/jsp/b2b/template/searchSort.jsp"></definition>
+	<!-- 搜索结果类别列表 -->
+	<definition name="b2bSearchCategoryList" template="/WEB-INF/jsp/b2b/template/searchCategoryList.jsp"></definition>
+	<!-- 搜索结果产品列表 -->
+	<definition name="b2bSearchProductList" template="/WEB-INF/jsp/b2b/template/searchProductList.jsp"></definition>
+	<!-- 搜索结果分页 -->
+	<definition name="b2bSearchPagination" template="/WEB-INF/jsp/b2b/template/searchPagination.jsp"></definition>
+	<!-- 热门列表 -->
+	<definition name="b2bSearchHotList" template="/WEB-INF/jsp/b2b/template/searchHotList.jsp"></definition>
+	<!-- 相关搜索 -->
+	<definition name="b2bRelevantSearch" template="/WEB-INF/jsp/b2b/template/relevantSearch.jsp"></definition>
+	<!-- 面包屑 -->
+	<definition name="b2bBreadcrumb" template="/WEB-INF/jsp/b2b/template/breadcrumb.jsp"></definition>
+	<!-- 搜索过滤条件无结果显示内容 -->
+	<definition name="b2bNotMatch" template="/WEB-INF/jsp/b2b/template/notMatch.html"></definition>
+</tiles-definitions>

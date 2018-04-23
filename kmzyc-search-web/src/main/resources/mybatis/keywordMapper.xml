@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kmzyc.search.app.dao.KeywordDao" >
+  	<resultMap id="keywordResultMap" type="com.kmzyc.search.app.model.KeywordVo" >
+	    <id column="ID" property="id"/>
+	    <result column="KEYWORD" property="keyword"/>
+	    <result column="DESCRIPTION" property="description"/>
+	    <result column="CREATER" property="creater"/>
+	    <result column="CREATE_TIME" property="createTime"/>
+	    <result column="UPDATER" property="updater"/>
+	    <result column="UPDATE_TIME" property="updateTime"/>
+  	</resultMap>
+  
+  	<select id="getKeywordCount" resultType="int">
+		select 
+		  	count(1)
+	   	from 
+	   		SEARCH_KEYWORD_DICT_T T
+		where
+			1 = 1
+			<if test="keyword != null and keyword != ''">
+				and <![CDATA[ T.KEYWORD like #{keyword} ]]> 
+			</if>
+	</select>
+	
+	<select id="getKeywordList" resultMap="keywordResultMap">
+	  	select * from(
+		  	select 
+		  		TT.*,
+				ROWNUM RN
+		  	from 
+			  	(select 
+			  		T.ID,
+				  	T.KEYWORD, 
+				  	T.DESCRIPTION, 
+				  	T.CREATER,
+				  	T.CREATE_TIME,
+				  	T.UPDATER,
+				  	T.UPDATE_TIME
+			   	from 
+			   		SEARCH_KEYWORD_DICT_T T
+				where
+					1 = 1
+					<if test="keyword != null and keyword != ''">
+						and <![CDATA[ T.KEYWORD like #{keyword} ]]> 
+					</if>
+			       	order by T.UPDATE_TIME desc) TT
+			 where 
+			 	<![CDATA[ ROWNUM <= #{page.endIndex} ]]>) TTT
+		where 
+			<![CDATA[ TTT.RN > #{page.startIndex} ]]> 
+	</select>
+	
+	<select id="getKeywordById" resultMap="keywordResultMap">
+		select 
+			T.ID,
+		  	T.KEYWORD, 
+		  	T.DESCRIPTION, 
+		  	T.CREATER,
+		  	T.CREATE_TIME,
+		  	T.UPDATER,
+		  	T.UPDATE_TIME
+	   	from 
+	   		SEARCH_KEYWORD_DICT_T T
+		where
+			T.ID = #{id}
+	</select>
+	
+	<insert id="addKeyword" parameterType="com.kmzyc.search.app.model.KeywordVo">
+		insert into SEARCH_KEYWORD_DICT_T(
+			ID,
+			KEYWORD,
+			DESCRIPTION,
+			CREATER,
+			CREATE_TIME,
+			UPDATER,
+			UPDATE_TIME)
+      	values(
+      		SEQ_SEARCH_KEYWORD_DICT_ID.nextval,
+      		#{keywordVo.keyword},
+         	#{keywordVo.description},
+         	#{keywordVo.creater},
+         	#{keywordVo.createTime},
+         	#{keywordVo.updater},
+         	#{keywordVo.updateTime})
+	</insert>
+	
+	<update id="updateKeyword" parameterType="com.kmzyc.search.app.model.KeywordVo">
+		update 
+			SEARCH_KEYWORD_DICT_T
+		set 
+		  	KEYWORD = #{keywordVo.keyword}, 
+		  	DESCRIPTION = #{keywordVo.description}, 
+		  	UPDATER = #{keywordVo.updater},
+		  	UPDATE_TIME = #{keywordVo.updateTime}
+		where
+			ID = #{keywordVo.id}
+	</update>
+	
+	<delete id="deleteKeywordById">
+		delete from 
+			SEARCH_KEYWORD_DICT_T
+		where
+			ID = #{id}
+	</delete>
+	
+	<delete id="batchDeleteKeyword">
+		delete from 
+			SEARCH_KEYWORD_DICT_T
+		where
+			ID in
+		 	<foreach collection="ids" item="id" index="index" open="(" close=")" separator=",">
+            	#{id}
+        	</foreach>
+	</delete>
+	
+	<select id="getCountByKeyword" resultType="int">
+		select 
+		  	count(1)
+	   	from 
+	   		SEARCH_KEYWORD_DICT_T T
+		where
+			T.KEYWORD = #{keyword}
+			<if test="id != null and id != ''">
+				and <![CDATA[ T.ID != #{id} ]]> 
+			</if>
+	</select>
+</mapper>

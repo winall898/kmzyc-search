@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kmzyc.search.app.dao.SynonymDao" >
+  	<resultMap id="synonymResultMap" type="com.kmzyc.search.app.model.SynonymVo" >
+	    <id column="ID" property="id"/>
+	    <result column="KEYWORD" property="keyword"/>
+	    <result column="SYNONYM_WORD" property="synonymWord"/>
+	    <result column="UNIDIR_WORD" property="unidirWord"/>
+	    <result column="DESCRIPTION" property="description"/>
+	    <result column="CREATER" property="creater"/>
+	    <result column="CREATE_TIME" property="createTime"/>
+	    <result column="UPDATER" property="updater"/>
+	    <result column="UPDATE_TIME" property="updateTime"/>
+  	</resultMap>
+  
+  	<select id="getSynonymCount" parameterType="com.kmzyc.search.app.model.SynonymVo" resultType="int">
+		select 
+		  	count(1)
+	   	from 
+	   		SEARCH_SYNONYM_DICT_T T
+		where
+			1 = 1
+			<if test="synonymVo.keyword != null and synonymVo.keyword != ''">
+				and <![CDATA[ T.KEYWORD like #{synonymVo.keyword} ]]> 
+			</if>
+			<if test="synonymVo.synonymWord != null and synonymVo.synonymWord != ''">
+				and <![CDATA[ T.SYNONYM_WORD like #{synonymVo.synonymWord} ]]> 
+			</if>
+			<if test="synonymVo.unidirWord != null and synonymVo.unidirWord != ''">
+				and <![CDATA[ T.UNIDIR_WORD like #{synonymVo.unidirWord} ]]> 
+			</if>
+	</select>
+	
+	<select id="getSynonymList" resultMap="synonymResultMap">
+	  	select * from(
+		  	select 
+		  		TT.*,
+				ROWNUM RN 
+		  	from 
+			  	(select 
+			  		T.ID,
+				  	T.KEYWORD, 
+				  	T.SYNONYM_WORD, 
+				  	T.UNIDIR_WORD, 
+				  	T.DESCRIPTION, 
+				  	T.CREATER,
+				  	T.CREATE_TIME,
+				  	T.UPDATER,
+				  	T.UPDATE_TIME
+			   	from 
+			   		SEARCH_SYNONYM_DICT_T T
+				where
+					1 = 1
+					<if test="synonymVo.keyword != null and synonymVo.keyword != ''">
+						and <![CDATA[ T.KEYWORD like #{synonymVo.keyword} ]]> 
+					</if>
+					<if test="synonymVo.synonymWord != null and synonymVo.synonymWord != ''">
+						and <![CDATA[ T.SYNONYM_WORD like #{synonymVo.synonymWord} ]]> 
+					</if>
+					<if test="synonymVo.unidirWord != null and synonymVo.unidirWord != ''">
+						and <![CDATA[ T.UNIDIR_WORD like #{synonymVo.unidirWord} ]]> 
+					</if>
+			       	order by T.UPDATE_TIME desc) TT
+			 where 
+			 	<![CDATA[ ROWNUM <= #{page.endIndex} ]]>) TTT
+		where 
+			<![CDATA[ TTT.RN > #{page.startIndex} ]]> 
+	</select>
+	
+	<select id="getSynonymById" resultMap="synonymResultMap">
+		select 
+			T.ID,
+		  	T.KEYWORD, 
+		  	T.SYNONYM_WORD, 
+		  	T.UNIDIR_WORD, 
+		  	T.DESCRIPTION, 
+		  	T.CREATER,
+		  	T.CREATE_TIME,
+		  	T.UPDATER,
+		  	T.UPDATE_TIME
+	   	from 
+	   		SEARCH_SYNONYM_DICT_T T
+		where
+			T.ID = #{id}
+	</select>
+	
+	<insert id="addSynonym" parameterType="com.kmzyc.search.app.model.SynonymVo">
+		insert into SEARCH_SYNONYM_DICT_T(
+			ID,
+		  	KEYWORD, 
+		  	SYNONYM_WORD, 
+		  	UNIDIR_WORD, 
+		  	DESCRIPTION, 
+		  	CREATER,
+		  	CREATE_TIME,
+		  	UPDATER,
+		  	UPDATE_TIME)
+      	values(
+      		SEQ_SEARCH_SYNONYM_DICT_ID.nextval,
+      		#{synonymVo.keyword},
+      		#{synonymVo.synonymWord},
+      		#{synonymVo.unidirWord},
+         	#{synonymVo.description},
+         	#{synonymVo.creater},
+         	#{synonymVo.createTime},
+         	#{synonymVo.updater},
+         	#{synonymVo.updateTime})
+	</insert>
+	
+	<update id="updateSynonym" parameterType="com.kmzyc.search.app.model.SynonymVo">
+		update 
+			SEARCH_SYNONYM_DICT_T
+		set 
+		  	KEYWORD = #{synonymVo.keyword},
+		  	SYNONYM_WORD = #{synonymVo.synonymWord},
+		  	UNIDIR_WORD = #{synonymVo.unidirWord},
+		  	DESCRIPTION = #{synonymVo.description}, 
+		  	UPDATER = #{synonymVo.updater},
+		  	UPDATE_TIME = #{synonymVo.updateTime}
+		where
+			ID = #{synonymVo.id}
+	</update>
+	
+	<delete id="deleteSynonymById">
+		delete from 
+			SEARCH_SYNONYM_DICT_T
+		where
+			ID = #{id}
+	</delete>
+	
+	<delete id="batchDeleteSynonym">
+		delete from 
+			SEARCH_SYNONYM_DICT_T
+		where
+			ID in
+		 	<foreach collection="ids" item="id" index="index" open="(" close=")" separator=",">
+            	#{id}
+        	</foreach>
+	</delete>
+	
+	<select id="getCountByKeyword" resultType="int">
+		select 
+		  	count(1)
+	   	from 
+	   		SEARCH_SYNONYM_DICT_T T
+		where
+			T.KEYWORD = #{keyword}
+			<if test="id != null and id != ''">
+				and <![CDATA[ T.ID != #{id} ]]> 
+			</if>
+	</select>
+</mapper>

@@ -1,0 +1,540 @@
+@charset "utf-8";
+/*	
+ * @名称: tpl.css
+ * @功能: 参考组件模块
+ */
+
+
+
+/*
+@名字：标题(.ui-title)
+@HTML标签代码：
+<div class="ui-title fn-clearfix"
+	<h2 class="ui-title-cnt fn-left">标题</h2>
+	<div class="ui-title-subcnt fn-left">
+		<!--标题中的其他内容-->
+	</div>
+</div>
+<!-- 如果标题没有其他内容，直接这样写 -->
+<h2 class="ui-title">标题</h2>
+ */
+.ui-title-cnt{border-bottom:1px solid #ddd;padding-bottom:8px;}
+.ui-title-subcnt{padding:10px;background:#f5f5f5;}
+
+
+
+/*风格*/
+.redstyle.ui-page{height:auto;}
+.redstyle .ui-page-item{font-size:16px;color:#E53F41;font-family: "microsoft yahei";border:1px solid #E53F41;padding:4px 16px;}
+.redstyle .ui-page-item:hover{border:1px solid #E53F41;background:#E53F41;color:#fff;}
+.redstyle .ui-page-item-current{background:#E53F41;color:#fff;}
+.redstyle .ui-page-text{border:1px solid #fff;}
+.redstyle .ui-page-text:hover{background:#fff;color:#E53F41;border:1px solid #fff;}
+.redstyle .ui-page-item-info{padding:0;}
+.redstyle .ui-page-number{color:#E53F41;border:2px solid #E53F41;padding:6px 12px;}
+.redstyle .ui-page-btnconfirm{font-weight:700;background:#E53F41;border:1px solid #cb292b;color:#fff;height:34px;width:80px;}
+.ui-page .ui-page-disabled,.ui-page .ui-page-disabled:hover,.redstyle .ui-page-disabled,.ui-page-disabled:hover{ cursor:not-allowed; border: 1px solid #e7e7e7; }
+
+
+/*
+@名字：箭头(.ui-angle)
+@HTML标签代码：
+<span class="ui-angle ui-angle-left">
+	<span class="ui-angle-outter"></span>
+	<span class="ui-angle-inner"></span>
+</span><!-- .ui-angle -->
+*/
+.ui-angle{position:absolute;}
+.ui-angle span{border:4px dashed transparent;font-size:0;height:0;overflow:hidden;zoom:1;position:absolute;width:0;}
+.ui-angle .ui-angle-outter{left:0;top:0;}
+.ui-angle-left span{border-right:5px solid #7e7e7e;}
+.ui-angle-left .ui-angle-inner{border-right:5px solid #fff;left:2px;}
+.ui-page-item:hover .ui-angle-left span{border-right:5px solid #ff8400;}
+.ui-page-item:hover .ui-angle-left .ui-angle-inner{border-right:5px solid #fff;}
+
+.ui-angle-right span{border-left:5px solid #7e7e7e;}
+.ui-angle-right .ui-angle-inner{border-left:5px solid #fff;left:-2px;}
+.ui-page-item:hover .ui-angle-right span{border-left:5px solid #ff8400;}
+.ui-page-item:hover .ui-angle-right .ui-angle-inner{border-left:5px solid #fff;}
+
+
+
+/*
+@名字：表格(.ui-table)
+@HTML标签代码：
+<table class="ui-table">
+	<thead>
+		<tr>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr><td></td></tr>
+	</tbody>
+</table><!-- .ui-table -->
+*/
+/*.ui-table{margin:0 auto;font-size:12px;}*/
+.ui-table caption{font-weight:500;background:#f1f0f0;line-height:33px;height:33px;text-indent:20px;}
+.ui-table th{ background-color: #f9f9f9;}
+.ui-table th,.ui-table td{padding:5px 10px;border:1px solid #e6e6e6; font-size: 14px;}
+.ui-table-input{ border: 1px solid #ddd; padding: 3px 5px;}
+.ui-table-edit a{ margin: 0 5px;}
+.ui-tips{ color: #999; display: inline-block; line-height: 25px; padding-left: 6px; vertical-align: top; font-size: 14px;}/*提示信息*/
+.ui-manage-title{ width: 100%; display: block; padding: 3px 0; margin-bottom: 5px;}/*添加*/
+.ui-manage-title a{background-color: #e6e6e6; padding: 5px 10px;  color: #abacac;}
+.ui-manage-title a:hover{ background-color: #dbdbdb; color: #abacac; text-decoration: none;}
+
+
+.ui-table-common{margin:0 auto;}
+.ui-table-common caption{font-weight:500;background:#f1f0f0;line-height:33px;height:33px;text-indent:20px;}
+.ui-table-common,.ui-table-common td{border:1px solid #f1f0f0;}
+.ui-table-common,.ui-table-common td{padding:5px 0;}
+.ui-table-common th{text-align:center;font-weight:500;height:25px;line-height:25px;}
+.ui-table-common tbody tr:hover,.ui-table-common tr.hover,.ui-table-common tbody tr.highlight{background:#f5ebcb;}
+.ui-table-common tbody tr.even{background:#f5f5f5;}
+
+
+.ui-table-dialog{min-width:540px;_width:expression((documentElement.clientWidth<540)?'540':'auto');}
+.ui-table-dialog caption{font-weight:500;background:#f1f0f0;line-height:33px;height:33px;text-indent:20px;}
+.ui-table-dialog{border:1px solid #f1f0f0;}
+.ui-table-dialog,.ui-table-dialog th,.ui-table-dialog td{padding:5px 20px;}
+.ui-table-dialog td.highlight{background:#f1f0f0;font-weight:700;}
+
+
+.nav-item-table{background:none repeat scroll 0 0 #fff;white-space:nowrap}
+.nav-item-table td,.nav-item-table th{border-right:1px solid #e7e7e7;padding:3px 16px;white-space:nowrap;font-size:12px;}
+.nav-item-table th{font-weight:700;padding:0 14px 3px 17px;border-collapse:separate;white-space:nowrap}
+.nav-item-table th.last,.nav-item-table td.last{border-right:0}
+.nav-item-table a{color:#a0a0a0;display:block;padding-left:3px;position:relative;vertical-align:middle}
+.nav-item-table a:hover{background-color:#aaa;border-radius:2px 2px 2px 2px;color:#fff;text-decoration:none;vertical-align:middle}
+
+
+
+/*
+@名字：表单(.ui-form)
+@HTML标签代码：
+<form id="" action="#" method="post" name="" class="ui-form">
+		    <fieldset>
+		        <legend>表单</legend>
+		        <div class="ui-form-item">
+		            <label class="ui-label" for="">
+		                <span class="ui-form-required">*</span>表单项文本
+		            </label>
+		            <input type="text" placeholder="Username"  class="ui-input" />
+		            <p class="ui-form-explain">默认文案。</p>
+		        </div>
+		    </fieldset>
+		</form><!-- .ui-form -->
+*/
+.ui-form fieldset {border: 0 none;}
+.ui-form legend {display: none;}
+.ui-form-explain,.ui-form-tiptext{color:#929292; font-size: 14px; overflow: hidden;}
+.ui-form-tiptext i{vertical-align:-2px;*vertical-align:0;margin-right:2px;}
+.ui-form-other {margin-left: 8px;}
+.ui-form-text{display: inline-block;margin-top: 6px;}
+.ui-form-inline{display:inline-block;*display:inline;}
+.ui-form-item:after {clear: both;  content: ".";  display: block; height: 0; visibility: hidden;}
+.ui-form-item { margin-bottom: 6px;line-height: 40px;  overflow: hidden; }
+.ui-form-item input[type="text"] ,.ui-form-item select{ vertical-align: top; height: 40px; padding-left: 10px;}
+.ui-form-item .ui-input {color: #595959;}
+.ui-form-item select{ height: 40px; margin: 0 5px;}
+.ui-form-item-error .ui-input, .ui-form-item-error .ui-textarea { border: 1px solid #E4393C;  color: #E4393C;}
+.ui-form-item-error .ui-input-reset { border: 1px solid #9C9C9C; color: #000000;}
+.ui-form-item-error .ui-form-explain { color: #FF5243;}
+.ui-form-explain input{ margin: 0 5px; vertical-align: middle; font-size: 14px; line-height: 28px;}
+.ui-form-btn-gray{ background-color: #e6e6e6; display: inline-block; font-size: 14px; color: #abacac; padding: 2px 5px; border: 1px solid #ddd; cursor: pointer;}
+.ui-form-large .ui-input { height: 18px; line-height: 18px; padding: 11px 10px;}
+.ui-form-large .ui-label { padding-top: 12px;}
+.ui-input { background-color: #f0f4f3; border: 1px solid #ddd; color: #333;}
+.ui-input280{ width: 280px;}
+.ui-select165{ width: 165px;}
+.ui-textarea500{ width: 500px; height: 130px;}
+.ui-textarea {  border: 1px solid #9C9C9C; font-family: Arial; margin: 0 5px;  font-size: 12px; line-height: 15px; overflow: auto; padding: 1px 3px 0 4px;}
+.ui-input[disabled], .ui-textarea[disabled] { background: none repeat scroll 0 0 #F2F2F2; border: 1px solid #CCCCCC;}
+.ui-input:disabled, .ui-textarea:disabled { background: none repeat scroll 0 0 #F2F2F2; border: 1px solid #CCCCCC; cursor: not-allowed;}
+.placeholder { color: #CCCCCC;}
+.ui-input-checkcode { width: 60px; font-size:14px; font-weight:700;}
+.ui-tiptext-error{color:#E4393C;}
+.ui-tiptext-success{color:#379945;}
+.ui-form-item-hover .ui-input, .ui-form-item-hover .ui-textarea {border: 1px solid #727272;}
+.ui-form-item-focus .ui-input, .ui-form-item-focus .ui-textarea {
+}.ui-form-item-focus .ui-form-explain, .ui-form-item-hover .ui-form-explain { color: #333333;}
+.ui-label { float: left; padding-right: 10px; text-align: right; width: 90px; color:#666; font-size: 14px;}
+.ui-label-inline{ display: inline-block;  padding-right: 10px;}
+.ui-form-required { color: #E4393C; font-family: SimSun; font-size: 14px; margin-right: 6px;}
+.ui-widget-btn{background: none repeat scroll 0 0 #666; border-radius: 2px; color: #fff; cursor: pointer; display: inline-block;
+    line-height: 17px; padding:10px;}
+.ui-widget-btn span{ color: #fff;}
+.ui-edit-btn{}/*编辑按钮*/
+.ui-edit-btn a{ display: inline-block; padding:0 3px;}
+.ui-b-solid{ border-bottom: 1px solid #ddd;}
+.ui-checkbox{ margin-right: 3px;}
+.ui-tpis{ line-height: 18px; padding: 5px 0;}
+.ui-radio{ vertical-align: middle; margin: 0 3px;}
+
+
+/** status
+.ui-form-hover {}
+.ui-form-focus {}
+.ui-form-error {}
+.ui-form-success {}
+.ui-form-warn {}
+.ui-form-loading {}
+ **/
+
+
+/*
+@名字：提示信息(.ui-tipbox)
+@HTML标签代码：
+<div class="ui-tipbox ui-tipbox-message">
+    <div class="ui-tipbox-icon">
+        <i class="iconfont" title="提示">&#xF046;</i>
+    </div>
+    <div class="ui-tipbox-content">
+        <h3 class="ui-tipbox-title">提示标题</h3>
+        <p class="ui-tipbox-explain">完成的说明完成的说明。</p>
+        <p class="ui-tipbox-explain"><a href="#">查询记录</a> | <a href="#">我的账户</a></p>
+    </div>
+</div>
+<!-- .ui-tipbox -->
+*/
+.ui-tipbox { font-size: 12px; line-height: 22px; position: relative;}
+.ui-tipbox a{color:#005EA7;}
+.ui-tipbox .ui-tipbox-icon { background:url("/res/images/common/common_shopcart.png") no-repeat 0 0;  height: 36px; left: 42px;
+    position: absolute; top: 16px; width: 36px;}
+.ui-tipbox-success .ui-tipbox-icon{background-position: -168px -598px;}
+.ui-tipbox-error .ui-tipbox-icon{background-position: -215px -598px;}
+.ui-tipbox-warning .ui-tipbox-icon{background-position: -265px -598px;}   
+.ui-tipbox-message { background: none repeat scroll 0 0 #E5F2F8; border: 1px solid #B2E2EA;}
+.ui-tipbox-success{ background: none repeat scroll 0 0 #EDFED0; border: 1px solid #E1E1CA;}
+.ui-tipbox-error{background: none repeat scroll 0 0 #FDEEE9; border: 1px solid #FADCD3;}
+.ui-tipbox-warning { background-color: #FCF8E3; border: 1px solid #FAEBCC;}
+.ui-tipbox-question { background: none repeat scroll 0 0 #E0F4FF; border: 1px solid #B2E2EA;}
+.ui-tipbox-stop { background: none repeat scroll 0 0 #FDEEE9; border: 1px solid #FADCD3;}
+.ui-tipbox-wait { background: none repeat scroll 0 0 #FFF9D9; border: 1px solid #FAE3CC;}
+.ui-tipbox-wrong{ color: #ff0000; padding: 20 0; text-align: center; font-size: 14px;}
+/*.ui-tipbox-content {
+    margin: 14px 0 14px 87px;
+}*/
+.ui-tipbox-content .ui-tipbox-title { margin: 0; padding: 0;}
+.ui-tipbox-content h3.ui-tipbox-title, .ui-tipbox-simple h3.ui-tipbox-title { font-size: 14px; font-weight: 700; margin-bottom:6px;    line-height:1.2;}
+.ui-tipbox-content,.ui-tipbox-simple{}
+.ui-tipbox-explain { color: #808080;  margin: 0; padding: 0; line-height:20px;}
+.ui-tipbox-white { background-color:#FFFFFF; border: 1px solid #fff;}
+.ui-tiptext { color: #4D4D4D; font-size: 12px; margin: 0; position: relative;}
+.ui-tiptext-follow { padding-left: 21px;}
+.ui-tiptext-container { padding: 8px 12px; position: relative;}
+.ui-tipbox-success .ui-tipbox-title{color:#379945;}
+.ui-tipbox-error .ui-tipbox-title{color:#e54143;}
+.ui-tipbox-warning .ui-tipbox-title{color:#fdb133;}
+.ui-tipbox-z-content{padding:18px 10px; overflow-y: auto;height: inherit;}
+
+
+
+
+
+/*
+@名字：提示信息(.ui-toptips)
+@HTML标签代码：
+<div class="ui-toptips">
+	<div class="ui-toptips-cnt ui-toptips-error">
+		<span class="ui-toptips-cnt-txt"></span>
+		<a class="ui-toptips-close"href=""></a>
+	</div>
+</div>
+<!-- .ui-toptips -->
+*/
+.ui-toptips{position: fixed;_position: absolute;top:0;_top:expression(eval(documentElement.scrollTop));z-index:20;width:100%;text-align:center;}
+.ui-toptips-cnt{display:inline-block;_display:inline;padding:3px 30px 7px 10px;border-radius:5px;color:#333;font-size:14px;font-weight:700;position:relative;*zoom:1}
+.ui-toptips-close{background:url("../../../../css/lib/images/common_icon.png") no-repeat 0 0;display:block;height:17px;width:17px;overflow:hidden;*zoom:1;position:absolute;right:8px;top:7px;}
+.ui-toptips-true{background:#cfc;border:1px solid #3c0;}
+.ui-toptips-true .ui-toptips-close{background-position:0 -54px;}
+.ui-toptips-true .ui-toptips-close:hover{background-position:-17px -54px;}
+.ui-toptips-error{background:#fcc;border:1px solid #f99;}
+.ui-toptips-error .ui-toptips-close{background-position:-34 -54px;}
+.ui-toptips-error .ui-toptips-close:hover{background-position:-51px -54px;}
+.ui-toptips-warning{background:#ffe5a8;border:1px solid #ecc57a}
+.ui-toptips-warning .ui-toptips-close{background-position:-68 -54px;}
+.ui-toptips-warning .ui-toptips-close:hover{background-position:-85px -54px;}
+
+
+
+/*
+@名字：TAB(.ui-tab)没背景切换
+@HTML标签代码：
+<div class="ui-tab">
+	<div class="ui-tab-trigger"> 
+		<ul> 
+			<li class="ui-tab-trigger-item"><a href="#">标题一</a></li>
+			<li class="ui-tab-trigger-item ui-tab-trigger-item-current"><a href="#">当前选中项</a></li>
+			<li class="ui-tab-trigger-item"><a href="#">其他项</a></li>
+		</ul>
+	</div>
+	<div class="ui-tab-cnt">
+		<div class="ui-tab-cnt-item ui-tab-cnt-item-current">
+			基础 ui-tab
+		</div>
+		<div class="ui-tab-cnt-item">
+			基础 ui-tab
+		</div>
+	</div>
+</div> <!-- .ui-tab -->
+*/
+.ui-tab-trigger {height:32px;line-height: 32px;  }
+.ui-tab-trigger-item {float:left;text-align:center;border-right:1px solid #dbdbdb;margin-right:-1px;}
+.ui-tab-trigger-item a{display:inline-block;width:100%;}
+.ui-tab-cnt {padding:10px; margin-top: 3px; border: 1px solid #ddd; background-color: #fcfcfc;}
+
+
+/*有背景切换
+<ul class="ui-tab-user">
+	<li class="ui-tab-user-item ui-tab-user-item-current">
+		<a href=""></a>
+	</li>
+	<li class="ui-tab-user-item">
+		<a href=""></a>
+	</li>
+</ul>
+ */
+.ui-tab-user{padding:3px 0 0 15px;font-size:14px;*letter-spacing:normal;border-bottom:1px solid #ddd;}
+.ui-tab-user-item{display:inline-block;*display:inline;zoom:1;letter-spacing:normal;word-spacing:normal;}
+.ui-tab-user-item a{display:inline-block;height:30px;line-height:30px;margin-bottom:-1px;padding:0 20px;margin-right:3px;text-align:center;vertical-align:bottom; color: #666; font-weight: normal;}
+.ui-tab-user-item a:hover{background:#fcfcfc;border-left: 1px solid #ddd;border-top: 1px solid #ddd;border-right: 1px solid #ddd; text-decoration:none;border-radius:5px 5px 0 0;}
+.ui-tab-user-item-current a{border-radius:5px 5px 0 0; background:#fcfcfc;border-bottom:1px solid #fcfcfc; border-left: 1px solid #ddd;border-top: 1px solid #ddd;border-right: 1px solid #ddd; cursor:text}
+.ui-tab-user-item-current a:hover{background:#fcfcfc;}
+
+
+/**
+@名字：弹出框状态提示(.ui-popup-tipbox)
+@HTML标签代码：
+<div class="ui-popup-tipbox ui-popup-tipbox-success">
+	<span class="fn-left ico-true"></span>
+	<div class="fn-block ui-popup-tipbox-content">
+		<h3 class="ui-popup-tipbox-title">保存成功！</h3> 
+		<p class="ui-popup-tipbox-explain">完成的说明完成的说明。</p>
+	</div>
+</div>
+ui-popup-tipbox-success
+ui-popup-tipbox-warning
+ui-popup-tipbox-danger
+ui-popup-tipbox-explain 提示文字
+ui-tipbox-content-simple 只有标题提示
+**/
+.ui-popup-tipbox{padding:20px 30px;}
+.ui-popup-tipbox-title{font-family:"microsoft yahei";font-size:20px;}
+.ui-popup-tipbox-success .ui-popup-tipbox-title{color:#7abd54;}
+.ui-popup-tipbox-warning .ui-popup-tipbox-title{color:#ffcc00;}
+.ui-popup-tipbox-danger .ui-popup-tipbox-title{color:#e4393b;}
+.ui-tipbox-content-simple{margin-top:4px;}
+
+/*弹出框提示*/
+/**
+@名字：弹出框状态提示(.ui-dialog-z)
+@HTML标签代码：
+<div class="ui-dialog-z" tabindex="-1" data-widget-cid="widget-2" style="width:280px;z-index: 999; display: block; left: 748px; top: 377px;">
+			<a data-role="close" href="javascript:;" title="关闭本框" class="ui-dialog-z-close" style="display: block;">×</a>
+			<div data-role="content" class="ui-dialog-z-content" style="height: 100%;">
+				<div class="ui-tipbox-z-content">
+					<div class="ui-tipbox ui-tipbox-success ui-tipbox-white">
+					    <div class="ui-tipbox-icon">
+					    </div>
+					    <div class="ui-tipbox-simple">
+					        <h3 class="ui-tipbox-title">我是提示提示信息！</h3>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+**/
+.ui-dialog-z { border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; outline: none; border: none; outline: none; border-radius:3px;  overflow: hidden; background-color: #fff; font-size: 14px;}
+.ui-dialog-z-header{ height: 50px; line-height: 50px; background-color: #f6f6f6; border-bottom: 1px solid #ddd; position: relative;}
+.ui-dialog-z-header h4{ font-size: 18px; color: #333; text-indent: 18px; font-weight: normal;}
+.ui-dialog { background-color:#379945; border: none; padding:0 4px 4px 4px; outline: none;}
+.ui-dialog-z-content { background: none repeat scroll 0 0 #FFFFFF;/*padding:20px;*/}
+.ui-dialog-content { border-radius: 5px;}
+:root .ui-dialog { FILTER: none\9;  border-radius: 5px; box-shadow: 0 0 3px rgba(51, 51, 51, 0.3);
+left: 50%; overflow: hidden; position: fixed; top: 50%; z-index: 101;}
+:root .ui-dialog-z { FILTER: none\9; left: 50%; background-color: transparent;
+overflow: hidden; /*position: fixed;*/ top: 50%; z-index: 101;}
+.ui-dialog-close { color: #FFFFFF; cursor: pointer; display: block; font-family: tahoma;font-size:22px; font-weight: bold; height: 18px;
+ width:18px; line-height: 14px; position: absolute; right: 12px; text-decoration: none; top: 12px; z-index: 10;}
+.ui-dialog-close:hover { color: #b2eaba;  text-shadow: 0 0 2px #aaa;  text-decoration: none;}
+.ui-dialog-z-close {  color: #727272; cursor: pointer;  display: block;  font-family: tahoma;  font-size:22px; font-weight: bold; padding: 5px; background-color: #fff;  line-height: 14px; font-weight: normal; border: 1px solid #ddd; border-radius: 4px;  position: absolute;  right: 12px; text-decoration: none; top: 13px; z-index: 10;}
+.ui-dialog-z-close:hover {  color: #818181; text-shadow: 0 0 2px #aaa; text-decoration: none;}
+.ui-dialog-z-footer{ text-align: center; display: block; padding: 20px 0; overflow: hidden;}
+.ui-dialog-z-footer a{ text-decoration: none;}
+.ui-dialog-z-footer .btn{ padding: 5px 36px; display: inline-block; font-size: 18px; border-radius: 4px; -webkit-border-radius: 4px; border: 0; -moz-border-radius: 4px; cursor: pointer; margin: 0 5px; text-decoration: none; font-family:"Microsoft YaHei"; border: 0;}
+.ui-btn-save{ background-color: #f68147; border-bottom: 2px solid #dd7440; color: #fff;}/*保存*/
+.ui-btn-save:hover{ background-color: #ef7539; text-decoration: none; color: #fff;}
+.ui-btn-cancel{ background-color: #e6e6e6; color: #abacac; border-bottom: 2px solid #cfcfcf;}/*取消*/
+.ui-btn-cancel:hover{ background-color: #dbdbdb; text-decoration: none;  color: #abacac;}
+
+/**
+组件警告框
+<div class="ui-alert ui-alert-success">
+  <a href="#" class="ui-alert-link">...</a>
+</div>
+<div class="ui-alert ui-alert-info">
+  <a href="#" class="ui-alert-link">...</a>
+</div>
+<div class="ui-alert ui-alert-warning">
+  <a href="#" class="ui-alert-link">...</a>
+</div>
+<div class="ui-alert ui-alert-danger">
+  <a href="#" class="ui-alert-link">...</a>
+</div>
+<div class="ui-alert ui-alert-danger ui-alert-dismissable"> //关闭按钮
+  <button aria-hidden="true" data-dismiss="ui-alert" class="close" type="button">×</button>
+  <strong></strong>
+</div>
+**/
+.ui-alert{border-radius:4px;padding:6px 12px;border:1px solid #dbdbdb;line-height:22px;}
+.ui-alert .ui-alert-inner{padding:40px 0 40px 320px;font-family: "microsoft yahei";font-size: 18px;}
+.ui-alert-success{background-color: #DFF0D8;border-color:#D6E9C6;color:#468847;}
+.ui-alert-warning{background-color: #FCF8E3;border-color: #FAEBCC;color: #C09853;}
+.ui-alert-danger{ background-color: #F2DEDE;border-color: #EBCCD1;color: #B94A48;}
+.ui-alert-info{background-color: #D9EDF7;border-color: #BCE8F1;color:#3A87AD;}
+.ui-alert-default{border:none;}
+.ui-alert .ui-alert-link{font-weight:700;}
+.ui-alert-success .ui-alert-link{color:#356635;}
+.ui-alert-warning .ui-alert-link{color:#A47E3C;}
+.ui-alert-danger .ui-alert-link{color:#953B39;}
+.ui-alert-info .ui-alert-link{color:#2D6987;}
+.ui-alert-default .ui-alert-link{color:#005EA7;}
+.ui-alert-dismissable{padding-right:35px;}
+.ui-alert-dismissable .ui-alert-close{color:inherit;border:none;float: right;font-size:21px;_font-size:16px;font-weight:bold;line-height:1;;text-shadow: 0 1px 0 #FFFFFF;cursor: pointer;padding:0;position:relative;right:-21px;top:-2px;background-color:transparent;}
+.ui-alert-dismissable .ui-alert-close:hover,.ui-alert-dismissable .ui-alert-close:focus{color:#999;}
+.ui-alert-inner .ico-true,.ui-alert-inner .ico-warn,.ui-alert-inner .ico-flase{margin-right:20px;}
+.ui-alert-inner  dl{margin-top:15px;font-size:16px;}
+
+/*
+@名字：分页(.ui-page)
+@HTML标签代码：
+<div class="clear p10">
+    <div class="ui-page">
+        <a href="javascript:void(0)" class="ui-page-item ui-page-disabled ui-page-item-prev"></a>
+        <a href="javascript:void(0)" class="ui-page-item ui-page-item-current">1</a>
+        <a href="javascript:void(0)" class="ui-page-item">2</a>
+        <a href="javascript:void(0)" class="ui-page-item">3</a>
+        <a href="javascript:void(0)" class="ui-page-item">4</a>
+        <a href="javascript:void(0)" class="ui-page-item">5</a>
+        <a href="javascript:void(0)" class="ui-page-item">6</a>
+        <a href="javascript:void(0)" class="ui-page-item">7</a>
+        <span class="ui-page-text">...</span>
+        <a href="javascript:void(0)" class="ui-page-item">40</a>
+        <a href="javascript:void(0)" class="ui-page-item ui-page-item-next"></a>
+        <span class="ui-page-item-info ui-page-text">跳转到</span>
+        <span><input id="inputPageNo" name="pageNo" type="text" value="1" title="" class="ui-page-number"></span>
+        <span><input type="button" class="ui-page-item" value="GO"></span>
+    </div>
+</div><!-- .ui-page -->
+ */
+.ui-page{display:inline-block;_display:inline;font-family:"Tahoma"; height:35px;line-height:35px;white-space:nowrap; float: right;}
+.ui-page-item{ float:left; display:inline-block; border:1px solid #ccc; color:#7e7e7e; font-size:14px; height:35px;
+    line-height:35px;  margin-right:5px; min-width:15px; padding:0 10px; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;behavior: url(js/pie.htc); text-align:center; vertical-align:middle; white-space:nowrap; background-color: #f1f1f1; overflow: hidden;
+    background-image: -moz-linear-gradient(top, #fff, #f1f1f1);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #f1f1f1));
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#f1f1f1', GradientType='0')*/;}
+.ui-page .ui-page-item-current{background:#666;border:1px solid #666;color:#fff;cursor:default;font-weight:700;text-decoration:none;}
+.ui-page a:hover{border:1px solid #000;color:#379945;text-decoration:none;}
+.ui-page .ui-page-item-current:hover{border:1px solid #4690cd; color:#fff;}
+.ui-page-text{border:none;padding:0;margin:0;}
+.ui-page input{ display:block; float:left;}
+.ui-page-number{border:1px solid #c1c1c1;font-family: "verdana"; font-size: 14px; background-color#fbfbfb;text-align:center;height:33px;line-height: 33px;width:40px;margin:0 5px;}
+.ui-page-btnconfirm{border:1px solid #ccc; border-radius:2px; -webkit-border-radius:2px; -moz-border-radius:2px; behavior: url(js/pie.htc); color:#333;cursor: pointer;height: 28px;margin-top:0;text-align: center;text-decoration: none;width:51px;margin-left:5px;background-color:#f5f5f5;}
+.ui-page-btnconfirm:hover{border:1px solid #d2d2d2;background-color:#efefef;}
+.ui-page-item-prev,.ui-page-item-next{ background: url(/resshop/images/common/icon.png) no-repeat; }
+.ui-page-item-prev{ background-position: -48px -70px;}
+.ui-page-item-next{ background-position: -72px -70px;}
+.ui-page-text{ display: inline; float: left; margin: 0 5px;}
+/*小*/
+.ui-page-sm{ height:25px;line-height:25px;}
+.ui-page-sm .ui-page-item{ height:25px;line-height:25px;}
+.ui-page-sm .ui-page-item-prev{ background-position: -48px -75px;}
+.ui-page-sm .ui-page-item-next{ background-position: -72px -75px;}
+.ui-page-sm .ui-page-number{border:1px solid #c1c1c1;font-family: "verdana"; font-size: 14px; background-color#fbfbfb;text-align:center;height:25px;line-height: 25px;width:40px;margin:0 5px;}
+
+
+/*不一样的分页*/
+.ui-edit-pagination { text-align: center; margin-top: 10px; line-height: 25px; }
+.ui-edit-pagination a, .ui-edit-pagination span { display: inline-block; *display:inline;
+    *zoom:1;
+    vertical-align: top; padding: 0 5px; height: 27px; }
+.ui-edit-pagination .ui-pg-item { width: auto; margin-left: 0; padding: 0 2px; height: 25px; line-height: 27px; border-bottom-width: 2px; text-align: center; text-decoration: none }
+.ui-edit-pagination .ui-pg-prev,.ui-edit-pagination .ui-pg-next{ border-radius: 4px; border: 1px solid #dfdfdf; text-align: center; font-size: 16px; margin-right: 5px; background-color: #f1f1f1;
+    background-image: -moz-linear-gradient(top, #fff, #f1f1f1);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #f1f1f1));
+   /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#f1f1f1', GradientType='0')*/;}
+.ui-edit-pagination .ui-pg-next { margin: 0 0 0 5px; }
+.ui-edit-pagination em { font-size: 15px; font-family: Arial; font-weight: 700; color: #555 }
+.ui-edit-pagination .ui-pg-current em { color: #F96625 }
+.ui-edit-pagination a.ui-pg-item:hover em { color: #000 }
+
+
+/*商品销量排名*/
+.ui-order{ line-height: 35px;}
+.ui-order li{ margin: 0 3px; display: inline;}
+.ui-order li a{ font-size: 14px; color: #666; text-decoration: none;}
+.ui-order li a:hover,.ui-order li a.curr{ color: #e96c6e;}
+.ui-order li a:hover .down,.ui-order li a.curr .down{ background-position: -117px 0;}
+.ui-order li a:hover .up,.ui-order li a.curr .up{ background-position: -106px 0;}
+.ui-order li i{ background: url(/resshop/images/common/icon.png) no-repeat; width: 10px; height: 10px; display: inline-block;}
+.ui-order li i.down{ background-position: -94px 0;}
+.ui-order li i.up{ background-position: -83px 0;}
+.ui-order .white-bg{ border: 1px solid #ddd; padding: 0 10px;}
+.ui-order .white-bg:hover,.ui-order .white-bg.curr{ background-color: #fff;}
+
+/*背景色及边框*/
+.ui-gray-solid{ background-color: #f5f5f5; border: 1px solid #ddd;}
+
+.edit-tabs-con .mod-list .mod-list-ui {
+    border-bottom: 0 none;
+}
+.edit-tabs-con .mod-list li .desc .ui-tips{
+	color: #999;
+    display: block;
+    height: 25px;
+    overflow: hidden;
+    padding-left: 25px;
+}
+.desc .ui-page-item{
+	background-position:-79px -41px;
+	width:13px;
+	height:13px;
+	 border: 0 none;
+    border-radius: 0;
+    color: #7e7e7e;
+    float: left;
+    font-size: 14px;
+    margin-right: 5px;
+    margin-top: 5px;
+    min-width: 0;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.desc .ui-page-item2{background-position:-56px -41px;}
+.desc input{ margin-right:5px;}
+.edit-tabs-con .mod-list li .desc .hidden{ display:none;}
+.mod-list.ui-tab-cnt input {
+    margin-left: 5px;
+}
+.w180 {
+    width: 180px;
+}
+.ui-edit-btn .ui-page-item3{background-position:-46px -324px; border:0 none; width:25px; height:25px;}
+.ui-edit-btn .ui-page-item4{background-position:-46px -371px; border:0 none; width:25px; height:25px;}
+
+.ui-dialog-z-footer .add-btn {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: block;
+    float: left;
+    left: 200px;
+    margin-left: 20px;
+    padding: 5px 20px;
+    position: relative;
+    text-align: center;
+}

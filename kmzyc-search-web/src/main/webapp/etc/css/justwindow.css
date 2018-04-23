@@ -1,0 +1,20 @@
+﻿@charset "utf-8";
+
+*{margin:0px; padding:0px}
+body{text-align:center; font-family: Arial, Helvetica, sans-serif; font-size:12px; color:#000}
+.clear{clear:both; width:100%; height:4px; font-size:1px; background:none; margin:auto}
+.xian{clear:both; width:100%; height:4px; font-size:1px; border-top:1px solid #CCC; background:none; margin:auto}
+.xux{font-size:1px; width:100%; height:1px; border-bottom:1px dashed #B0B0B0; margin:auto;}
+/*比分弹出窗口*/
+.justbox{width:300px; height:auot; margin:auto}
+.justbox2{width:650px; height:auot; margin:auto}
+
+.weight{font-weight:bold}
+.font10{font-size:10px}
+.font14{font-size:14px}
+.zongse{color:#990000}
+.red{color:red}
+.bai{color:#FFF}
+.yellow{color:yellow}
+.blue{color:blue}
+/*比分弹出窗口结束*/

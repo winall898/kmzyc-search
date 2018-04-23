@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kmzyc.search.app.dao.SuggestItemDAO" >
+  	<resultMap id="suggestItemDOResultMap" type="com.kmzyc.search.app.model.SuggestItem" >
+	    <result property="id" column="ID" />
+	    <result property="source" column="SOURCE" />
+	    <result property="term" column="TERM" />
+	    <result property="pinyin" column="PINYIN" />
+	    <result property="jianpin" column="JIANPIN" />
+	    <result property="count" column="COUNT" />
+	    <result property="sort" column="SORT" />
+	    <result property="channel" column="CHANNEL" />
+  	</resultMap>
+  
+  	<sql id="suggestItem_columns" >
+   		a1.ID, a1.SOURCE, a1.TERM, a1.PINYIN, a1.JIANPIN, a1.COUNT, a1.SORT, a1.CHANNEL
+  	</sql>
+
+  	<sql id="suggestItem_do_columns" >
+    	a1.ID, a1.SOURCE, a1.TERM, a1.PINYIN, a1.JIANPIN, a1.COUNT, a1.SORT, a1.CHANNEL
+  	</sql>
+  
+	<sql id="queryParams" >
+		where 1 = 1
+		<if test="id != null">
+			and <![CDATA[ ID = #{id} ]]> 
+		</if>
+		<if test="source != null">
+			and <![CDATA[ SOURCE = #{source} ]]> 
+		</if>
+		<if test="term != null">
+			and <![CDATA[ TERM = #{term} ]]> 
+		</if>
+		<if test="pinyin != null">
+			and <![CDATA[ PINYIN = #{pinyin} ]]> 
+		</if>
+		<if test="jianpin != null">
+			and <![CDATA[ JIANPIN = #{jianpin} ]]> 
+		</if>
+		<if test="count != null">
+			and <![CDATA[ COUNT = #{count} ]]> 
+		</if>
+		<if test="sort != null">
+			and <![CDATA[ SORT = #{sort} ]]> 
+		</if>
+		<if test="channel != null">
+			and <![CDATA[ CHANNEL = #{channel} ]]> 
+		</if>
+  	</sql>
+  	
+  	<sql id="doQueryParams" >
+  		where 1 = 1
+  		<if test="id != null">
+			and <![CDATA[ ID = #{id} ]]> 
+		</if>
+		<if test="source != null">
+			and <![CDATA[ SOURCE = #{source} ]]> 
+		</if>
+		<if test="term != null">
+			and <![CDATA[ TERM = #{term} ]]> 
+		</if>
+		<if test="pinyin != null">
+			and <![CDATA[ PINYIN = #{pinyin} ]]> 
+		</if>
+		<if test="jianpin != null">
+			and <![CDATA[ JIANPIN = #{jianpin} ]]> 
+		</if>
+		<if test="count != null">
+			and <![CDATA[ COUNT = #{count} ]]> 
+		</if>
+		<if test="sort != null">
+			and <![CDATA[ SORT = #{sort} ]]> 
+		</if>
+		<if test="channel != null">
+			and <![CDATA[ CHANNEL = #{channel} ]]> 
+		</if>
+  	</sql>
+  	
+  	<insert id="insertSuggestItemDO" parameterType="com.kmzyc.search.app.model.SuggestItem" >
+	  	<selectKey resultType="java.lang.Integer" keyProperty="id" >
+	      select seq_app_suggest_item.nextval from dual
+	    </selectKey>
+    	INSERT INTO APP_SUGGEST_ITEM( 
+    		ID, 
+    		SOURCE, 
+    		TERM, 
+    		PINYIN, 
+    		JIANPIN, 
+    		COUNT, 
+    		SORT, 
+    		CHANNEL)
+     	VALUES ( 
+     		#{id}, 
+     		#{source}, 
+     		#{term}, 
+     		#{pinyin}, 
+     		#{jianpin}, 
+     		#{count}, 
+     		#{sort}, 
+     		#{channel})
+  	</insert>
+  	
+  	<update id="updateSuggestItemDO" parameterType="com.kmzyc.search.app.model.SuggestItem" >
+	    UPDATE APP_SUGGEST_ITEM set
+	    <trim prefix="SET" suffixOverrides=",">
+			<if test="source != null">
+				<![CDATA[ SOURCE = #{source} ]]> 
+			</if>
+			<if test="term != null">
+				<![CDATA[ TERM = #{term} ]]> 
+			</if>
+			<if test="pinyin != null">
+				<![CDATA[ PINYIN = #{pinyin} ]]> 
+			</if>
+			<if test="jianpin != null">
+				<![CDATA[ JIANPIN = #{jianpin} ]]> 
+			</if>
+			<if test="count != null">
+				<![CDATA[ COUNT = #{count} ]]> 
+			</if>
+			<if test="sort != null">
+				<![CDATA[ SORT = #{sort} ]]> 
+			</if>
+			<if test="channel != null">
+				<![CDATA[ CHANNEL = #{channel} ]]> 
+			</if>
+		</trim>
+	    WHERE ID = #{id}  
+  	</update>
+  	
+  	<select id="findSuggestItemDOByPrimaryKey" parameterType="java.lang.Integer" resultMap="suggestItemDOResultMap" >
+     	SELECT 
+    		<include refid="suggestItem_do_columns" />
+	    FROM 
+	    	APP_SUGGEST_ITEM a1 
+	    WHERE 
+	    	ID = #{id}
+ 	</select>
+ 	
+ 	<delete id="deleteSuggestItemDOByPrimaryKey" parameterType="java.lang.Integer" >
+	     DELETE 
+	     	
+	     FROM 
+	     	APP_SUGGEST_ITEM 
+	     WHERE 
+	     	ID = #{id}
+  	</delete>
+  	
+  	<select id="countSuggestItemDOByExample" parameterType="com.kmzyc.search.app.model.SuggestItem" resultType="java.lang.Integer" >
+	    SELECT 
+	    	COUNT(ID) AS num 
+	    FROM 
+	    	APP_SUGGEST_ITEM 
+	    <include refid="doQueryParams" />
+  	</select>
+  	
+  	<select id="findListByExample" resultMap="suggestItemDOResultMap" parameterType="com.kmzyc.search.app.model.SuggestItem" >
+     	SELECT 
+    		<include refid="suggestItem_do_columns" />
+     	FROM 
+     		APP_SUGGEST_ITEM a1 
+    	<include refid="doQueryParams" />
+  	</select>
+  	
+  	<select id="findPageByVo" parameterType="com.kmzyc.search.app.model.SuggestItem" resultMap="suggestItemDOResultMap">
+		SELECT 
+			ID, 
+			SOURCE, 
+			TERM, 
+			PINYIN, 
+			JIANPIN, 
+			COUNT, 
+			SORT, 
+			CHANNEL 
+	    FROM (
+	    	SELECT 
+	    		ROW_NUMBER() OVER(order by ID desc) as rnum, 
+	    		qt.* 
+	    	FROM 
+	    		APP_SUGGEST_ITEM qt 
+	    	WHERE 1=1
+	    		<if test="source != null">
+					and <![CDATA[ qt.SOURCE like #{source} ]]> 
+				</if>
+				<if test="term != null">
+					or <![CDATA[ qt.TERM like #{term} ]]> 
+				</if>
+	    	)
+	    WHERE 
+	    	rnum between #{skip} and #{max} 
+  	</select>
+</mapper>

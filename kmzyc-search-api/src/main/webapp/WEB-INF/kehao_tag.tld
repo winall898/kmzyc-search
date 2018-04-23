@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<taglib>
+	<tlib-version>1.1.2</tlib-version>
+	<jsp-version>2.0</jsp-version>
+	<short-name>kh</short-name>
+	<uri>kh</uri>
+	<description>kehao common html</description>
+	<tag>
+    	<name>html</name>
+       	<tag-class>com.km.framework.taglib.CommonHtml</tag-class>
+       	<attribute>
+	       	<name>title</name>
+	       	<rtexprvalue>true</rtexprvalue>  
+       	</attribute>   
+       	<attribute>
+	       	<name>keywords</name>
+	       	<rtexprvalue>true</rtexprvalue>  
+       	</attribute>  
+       	<attribute>
+	       	<name>description</name>
+	       	<rtexprvalue>true</rtexprvalue>  
+       	</attribute>  
+       	<attribute>
+	       	<name>css</name>
+	       	<rtexprvalue>true</rtexprvalue>  
+       	</attribute>         	   
+       	<attribute>
+	       	<name>js</name>
+	       	<rtexprvalue>true</rtexprvalue>  
+       	</attribute>            	       	
+<!--        	<attribute>
+	       	<name>dwr</name>
+	       	<rtexprvalue>true</rtexprvalue>  
+       	</attribute>  -->
+       	<body-content>jsp</body-content>
+    </tag>          
+</taglib>

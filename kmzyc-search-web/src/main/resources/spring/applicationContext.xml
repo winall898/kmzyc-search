@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jee="http://www.springframework.org/schema/jee"
+    xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+    http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+   
+   <!-- freemaker配置 -->
+    <bean id="freemarkerConfig"  
+        class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">  
+        <property name="templateLoaderPath" value="/"/>  
+        <property name="freemarkerSettings">  
+            <props>  
+                <prop key="template_update_delay">0</prop>  
+                <prop key="default_encoding">UTF-8</prop>  
+                <prop key="number_format">0.##########</prop>  
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>  
+                <prop key="classic_compatible">true</prop>  
+                <prop key="template_exception_handler">ignore</prop>  
+            </props>  
+        </property>  
+    </bean>
+     
+    <bean id="propertyConfigurer" class="com.kmzyc.search.config.ZKPropertyPlaceholderConfigurer"> 
+		<!-- <property name="locations"> 
+			<list>
+				<value>classpath:config/mq.properties</value>
+				<value>classpath:config/redis.properties</value>
+				<value>classpath:config/dubbo.properties</value>
+				<value>classpath:config/jdbc.properties</value>
+				<value>classpath:config/config.properties</value>
+				<value>classpath:config/quartz.properties</value>
+				<value>classpath:config/zk.properties</value>
+				<value>classpath:config/shiro.properties</value>
+			</list> 
+		</property>-->
+		<property name="zkPaths"> 
+			<list>
+				<value>/kmconfig/commons/mq.properties</value>
+				<value>/kmconfig/commons/jdbc.properties</value>
+				<value>/kmconfig/commons/redis.properties</value>
+				<value>/kmconfig/commons/dubbo.properties</value>
+				<value>/kmconfig/esconfig/web/config/config.properties</value>
+				<value>/kmconfig/esconfig/web/config/quartz.properties</value>
+				<value>/kmconfig/esconfig/web/config/zk.properties</value>
+				<value>/kmconfig/esconfig/web/config/shiro.properties</value>
+			</list>
+		</property>
+		
+		<property name="checkSystemProperties">  
+            <value>true</value>  
+        </property>
+	</bean>
+	
+	<!-- SpringMVC上传文件时,需配置MultipartResolver处理器 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	    <!-- 指定所上传文件的总大小不能超过20M......注意maxUploadSize属性的限制不是针对单个文件,而是所有文件的容量之和 -->
+	    <property name="maxUploadSize" value="20000000"/>
+	</bean>
+	 
+	<!-- SpringMVC在超出上传文件限制时,会抛出org.springframework.web.multipart.MaxUploadSizeExceededException -->
+	<!-- 该异常是SpringMVC在检查上传的文件信息时抛出来的,而且此时还没有进入到Controller方法中 -->
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	    <property name="exceptionMappings">
+	        <props>
+	            <!-- 遇到MaxUploadSizeExceededException异常时,自动跳转到/WEB-INF/jsp/error_fileupload.jsp页面 -->
+	            <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">error_fileupload</prop>
+	        </props>
+	    </property>
+	</bean>
+    
+     <!-- 开启注解扫描 -->
+    <context:annotation-config />
+	<context:component-scan base-package="com.kmzyc.search.app">
+	    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" /> 
+	</context:component-scan>
+	
+	<!-- CuratorFramework的FactoryBean，Spring启动时创建Curator ZK实例。 -->
+	<bean id="zookeeperFactory" class="com.kmzyc.search.config.CuratorFrameworkZKClientFactory" lazy-init="false">
+		<property name="zkConnectionString" value="${zk.host}" />
+	    <property name="connectionTimeoutMs" value="${zk.connect.timeout}" />
+	    <property name="sessionTimeoutMs" value="${zk.session.timeout}" />
+	    <property name="baseSleepTimeMs" value="${zk.sleepTime}" />
+	    <property name="maxRetries" value="${zk.retryTimes}" />
+	</bean>
+	
+	<import resource="spring-datasource.xml" />
+	<import resource="spring-mq.xml" />
+	<import resource="spring-shiro.xml" />
+	<import resource="spring-redis.xml" />
+	
+	<!-- dubbo配置 -->
+	<dubbo:application name="consumer-of-search-app"/>
+	<dubbo:monitor protocol="registry"/>
+	<dubbo:registry client="curator" address="${dubbo.registry.address}" file="search_dubbo.cache" check="${dubbo.registry.check}"/>
+	<dubbo:consumer timeout="10000" retries="0" check="${dubbo.consumer.check}"/>
+	<dubbo:reference id="baseProductRemoteService" interface="com.kmzyc.promotion.remote.service.BaseProductRemoteService" check="false"/>
+	<dubbo:reference id="presellInfoRemoteService" interface="com.kmzyc.promotion.remote.service.PresellInfoRemoteService" check="false"/>
+</beans>

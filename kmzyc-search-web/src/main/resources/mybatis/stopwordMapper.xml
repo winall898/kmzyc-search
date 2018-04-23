@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kmzyc.search.app.dao.StopwordDao" >
+  	<resultMap id="stopwordResultMap" type="com.kmzyc.search.app.model.StopwordVo" >
+	    <id column="ID" property="id"/>
+	    <result column="STOPWORD" property="stopword"/>
+	    <result column="DESCRIPTION" property="description"/>
+	    <result column="CREATER" property="creater"/>
+	    <result column="CREATE_TIME" property="createTime"/>
+	    <result column="UPDATER" property="updater"/>
+	    <result column="UPDATE_TIME" property="updateTime"/>
+  	</resultMap>
+  
+  	<select id="getStopwordCount" resultType="int">
+		select 
+		  	count(1)
+	   	from 
+	   		SEARCH_STOPWORD_DICT_T T
+		where
+			1 = 1
+			<if test="stopword != null and stopword != ''">
+				and <![CDATA[ T.STOPWORD like #{stopword} ]]> 
+			</if>
+	</select>
+	
+	<select id="getStopwordList" resultMap="stopwordResultMap">
+	  	select * from(
+		  	select 
+		  		TT.*,
+				ROWNUM RN
+		  	from 
+			  	(select 
+			  		T.ID,
+				  	T.STOPWORD, 
+				  	T.DESCRIPTION, 
+				  	T.CREATER,
+				  	T.CREATE_TIME,
+				  	T.UPDATER,
+				  	T.UPDATE_TIME
+			   	from 
+			   		SEARCH_STOPWORD_DICT_T T
+				where
+					1 = 1
+					<if test="stopword != null and stopword != ''">
+						and <![CDATA[ T.STOPWORD like #{stopword} ]]> 
+					</if>
+			       	order by T.UPDATE_TIME desc) TT
+			 where 
+			 	<![CDATA[ ROWNUM <= #{page.endIndex} ]]>) TTT
+		where 
+			<![CDATA[ TTT.RN > #{page.startIndex} ]]> 
+	</select>
+	
+	<select id="getStopwordById" resultMap="stopwordResultMap">
+		select 
+			T.ID,
+		  	T.STOPWORD, 
+		  	T.DESCRIPTION, 
+		  	T.CREATER,
+		  	T.CREATE_TIME,
+		  	T.UPDATER,
+		  	T.UPDATE_TIME
+	   	from 
+	   		SEARCH_STOPWORD_DICT_T T
+		where
+			T.ID = #{id}
+	</select>
+	
+	<insert id="addStopword" parameterType="com.kmzyc.search.app.model.StopwordVo">
+		insert into SEARCH_STOPWORD_DICT_T(
+			ID,
+			STOPWORD,
+			DESCRIPTION,
+			CREATER,
+			CREATE_TIME,
+			UPDATER,
+			UPDATE_TIME)
+      	values(
+      		SEQ_SEARCH_STOPWORD_DICT_ID.nextval,
+      		#{stopwordVo.stopword},
+         	#{stopwordVo.description},
+         	#{stopwordVo.creater},
+         	#{stopwordVo.createTime},
+         	#{stopwordVo.updater},
+         	#{stopwordVo.updateTime})
+	</insert>
+	
+	<update id="updateStopword" parameterType="com.kmzyc.search.app.model.StopwordVo">
+		update 
+			SEARCH_STOPWORD_DICT_T
+		set 
+		  	STOPWORD = #{stopwordVo.stopword}, 
+		  	DESCRIPTION = #{stopwordVo.description}, 
+		  	UPDATER = #{stopwordVo.updater},
+		  	UPDATE_TIME = #{stopwordVo.updateTime}
+		where
+			ID = #{stopwordVo.id}
+	</update>
+	
+	<delete id="deleteStopwordById">
+		delete from 
+			SEARCH_STOPWORD_DICT_T
+		where
+			ID = #{id}
+	</delete>
+	
+	<delete id="batchDeleteStopword">
+		delete from 
+			SEARCH_STOPWORD_DICT_T
+		where
+			ID in
+		 	<foreach collection="ids" item="id" index="index" open="(" close=")" separator=",">
+            	#{id}
+        	</foreach>
+	</delete>
+	
+	<select id="getCountByStopword" resultType="int">
+		select 
+		  	count(1)
+	   	from 
+	   		SEARCH_STOPWORD_DICT_T T
+		where
+			T.STOPWORD = #{stopword}
+			<if test="id != null and id != ''">
+				and <![CDATA[ T.ID != #{id} ]]> 
+			</if>
+	</select>
+</mapper>

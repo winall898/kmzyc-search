@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/jee
+    http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<!-- 配置connectionFactory -->
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL">
+			<value>${brokerURL}</value>
+		</property>
+	</bean>
+	
+	<!-- <bean id="jmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory"
+		destroy-method="stop">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="maxConnections" value="100"></property>
+	</bean>
+
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="jmsFactory" />
+		<property name="defaultDestinationName" value="subject" />
+		<property name="pubSubDomain" value="false" />
+	</bean> -->
+	
+	<!-- 消息监听器 -->
+	<bean id="messageReceiverListener" class="com.kmzyc.search.app.jms.MessageReceiverListener"></bean>
+	
+	<!-- 产品系统MSG -->
+	<bean id="productModify" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="product_modify" />
+	</bean>
+	<!--给消息获取类加个监听让他能自动获取消息 -->
+	<bean id="productModifyListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory"></property>
+		<property name="destination" ref="productModify"></property>
+		<property name="messageListener" ref="messageReceiverListener"></property>
+		<!-- 配置消费者线程 -->
+		<property name="concurrentConsumers" value="2" />
+		<property name="idleTaskExecutionLimit" value="100" />
+		<property name="cacheLevel" value="3" />
+	</bean>
+	
+	<!-- 促销产品信息 -->
+	<bean id="productPromotion" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="product_promotion_search" />
+	</bean>
+	<!--给消息获取类加个监听让他能自动获取消息 -->
+	<bean id="promotionListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory"></property>
+		<property name="destination" ref="productPromotion"></property>
+		<property name="messageListener" ref="messageReceiverListener"></property>
+	</bean> 
+	
+	<!-- 店铺信息 -->
+	<bean id="productShopmain" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="product_shopmain" />
+	</bean>
+	<!--给消息获取类加个监听让他能自动获取消息 -->
+	<bean id="shopListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory"></property>
+		<property name="destination" ref="productShopmain"></property>
+		<property name="messageListener" ref="messageReceiverListener"></property>
+	</bean> 
+</beans>

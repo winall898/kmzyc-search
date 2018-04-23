@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx.xsd
+           http://www.springframework.org/schema/task 
+           http://www.springframework.org/schema/task/spring-task.xsd
+           http://code.alibabatech.com/schema/dubbo 
+   		   http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    
+    
+	<context:component-scan base-package="com.kmzyc"/>
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+	<bean id="propertyConfigurer" class="com.kmzyc.search.config.ZKPropertyPlaceholderConfigurer"> 
+		<!--<property name="locations"> 
+			<list>
+				<value>classpath:config/jdbc.properties</value>
+				<value>classpath:config/dubbo.properties</value>
+				<value>classpath:config/cms.properties</value>
+				<value>classpath:config/config.properties</value>
+				<value>classpath:config/zk.properties</value>
+			</list> 
+		</property> -->
+		<property name="zkPaths"> 
+			<list>
+				<value>/kmconfig/commons/jdbc.properties</value>
+				<value>/kmconfig/commons/dubbo.properties</value>
+				<value>/kmconfig/esconfig/api/config/cms.properties</value>
+				<value>/kmconfig/esconfig/api/config/config.properties</value>
+				<value>/kmconfig/esconfig/api/config/zk.properties</value>
+			</list> 
+		</property>
+        <property name="checkSystemProperties">  
+            <value>true</value>  
+        </property>
+	</bean> 
+
+	<!-- CuratorFramework的FactoryBean，Spring启动时创建Curator ZK实例。 -->
+	<bean id="zookeeperFactory" class="com.kmzyc.search.config.CuratorFrameworkZKClientFactory" lazy-init="false">
+		<property name="zkConnectionString" value="${zk.host}" />
+	    <property name="connectionTimeoutMs" value="${zk.connect.timeout}" />
+	    <property name="sessionTimeoutMs" value="${zk.session.timeout}" />
+	    <property name="baseSleepTimeMs" value="${zk.sleepTime}" />
+	    <property name="maxRetries" value="${zk.retryTimes}" />
+	</bean>
+	
+	<import resource="spring-*.xml"/>
+	
+	<!-- dubbo配置 -->
+	<dubbo:application name="search-of-facade-app" owner="kmzyc.search"/>
+	<dubbo:monitor protocol="registry"/>
+	<!-- 使用zookeeper注册中心暴露服务地址 -->
+	<dubbo:registry client="curator" address="${dubbo.registry.address}" file="facade_dubbo.cache" check="${dubbo.registry.check}"/>
+	<!-- 用dubbo协议在20886端口暴露服务 -->
+	<dubbo:protocol name="dubbo" port="20886" /> 
+	<!-- 当ProtocolConfig和ServiceConfig某属性没有配置时,采用此缺省值 -->	
+	<dubbo:provider timeout="10000"  threadpool="fixed" threads="100" accepts="1000"/>
+	<dubbo:consumer timeout="10000" retries="0" check="${dubbo.consumer.check}"/>
+
+	<!-- 对外暴露的服务 -->
+ 	<!-- 用户实名认证服务接口 -->
+	<dubbo:service ref="esSearchService"
+		interface="com.kmzyc.search.remote.service.EsSearchService"/>
+	
+	<!-- 调用第三方系统的服务 -->
+	<!-- 促销系统 -->
+	<dubbo:reference id="baseProductRemoteService" interface="com.kmzyc.promotion.remote.service.BaseProductRemoteService" check="false"/>
+	<!-- 产品系统 -->
+	<dubbo:reference id="saleRankService" interface="com.kmzyc.product.remote.service.SaleRankRemoteService" check="false"/>
+	<dubbo:reference id="categoryRemoteService" interface="com.kmzyc.product.remote.service.CategoryRemoteService" check="false"/>
+	<!-- CMS系统 -->
+	<dubbo:reference id="viewProductInfoRemoteService" interface="com.kmzyc.cms.remote.service.ViewProductInfoRemoteService" check="false"/>	
+</beans>

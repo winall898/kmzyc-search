@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dbcrawler>
+	<database>
+			<driverClassName>oracle.jdbc.driver.OracleDriver</driverClassName>
+			<dbURL>jdbc:oracle:thin:@10.1.6.151:1521:orcl</dbURL>
+			<username>kmopr</username>
+			<password>kmopr20170324</password>
+			<querySql>select * from SEARCH_B2B_DATA_WHOLE</querySql>
+			<pageSize>500</pageSize>
+	</database>
+	
+	<!-- true ,whole ; false, increment -->	
+	<whole>true</whole>
+		
+	<esIndex>	
+		<indexDB>b2b</indexDB>
+		<indexType>b2b</indexType>
+		<indexId>PRODUCT_SKU_ID</indexId>
+	</esIndex>
+	
+	<transformeres>com.kmzyc.search.app.dbcrawler.transformer.PromotionTransformer</transformeres>
+	
+	<fields>
+		<field column="PRODUCT_SKU_ID" type="long" indexField="id" />
+		<field column="PRODUCT_ID" type="long" indexField="prodId" />
+		<field column="PRODUCT_SKU_CODE" type="string" indexField="skucode" />
+		<field column="MARK_PRICE" type="double" indexField="mprice" />
+		<field column="PV_VALUE" type="double" indexField="skupv" />
+		<field column="PRICE" type="double" indexField="price" />
+		<field column="CHANNEL" type="string" indexField="channel" />
+		<field column="BOTTOM_AMOUNT" type="long" indexField="bottomAmount" />
+		<field column="UNIT" type="string" indexField="unit" />
+		<field column="SALE_QUANTITY" type="long" indexField="sales" />
+		<field column="IMG_PATH" type="string" indexField="image" splitBy="," />
+		<field column="CATEGORY_ATTR_NAME_IS_NAV" type="string" indexField="attrname" splitBy="," />
+		<field column="CATEGORY_ATTR_VALUE_IS_NAV" type="string" indexField="attrval" splitBy="," />
+		<field column="CATEGORY_ATTR_NAME" type="string" indexField="san_ss" splitBy="," />
+		<field column="CATEGORY_ATTR_VALUE" type="string" indexField="sav_cns" splitBy="," />
+		<field column="PROCUCT_NAME" type="string" indexField="prodName" />
+		<field column="PRODUCT_TITLE" type="string" indexField="prodTitle" />
+		<field column="PRODUCT_SUBTITLE" type="string" indexField="subtitle" />
+		<field column="KEYWORD" type="string" indexField="keyword" />
+		<field column="PRODUCTHOT" type="long" indexField="prodHot" />
+		<field column="BRAND_ID" type="long" indexField="brandId" />
+		<field column="BRAND_NAME" type="string" indexField="brandName" />
+		<field column="CREATE_TIME" type="date" indexField="cTime" />
+		<field column="UP_TIME" type="date" indexField="upTime" />
+		<field column="APPROVAL_TYPE" type="int" indexField="approType" />
+		<field column="APPROVAL_NO" type="string" indexField="approNum" />
+		<field column="SHOP_CODE" type="string" indexField="scode" />
+		<field column="PRODUCT_NO" 	 type="string" indexField="pno" />
+		<field column="DRUG_CATE_ID" type="long" indexField="drugId" />
+		<field column="DRUG_CATE_CODE" type="string" indexField="drugCode" />
+		<field column="PRODUCT_TYPE" type="int" indexField="prodType" />
+		<field column="CATEGORY_ID" type="string" indexField="pcId" splitBy="," />
+		<field column="CATEGORY_CODE" type="string" indexField="pcCode" splitBy="," />
+		<field column="CATEGORY_NAME" type="string" indexField="pcName" splitBy="," />
+		<field column="SUPPLIER_TYPE" type="int" indexField="supType" />
+		<field column="SHOP_NAME" type="string" indexField="shopName" />
+		<field column="SHOP_ID" type="long" indexField="shopId" />	
+		<field column="PRODUCT_ATTR_NAME_OP" type="string" indexField="opname" splitBy="," />
+		<field column="PRODUCT_ATTR_NAME_OPVAL" type="string" indexField="opval" splitBy="," />	
+		<field column="QUALITY" type="long" indexField="stock" />
+		<field column="GRADE" type="long" indexField="grade" />
+		<field column="PNUM" type="long" indexField="pnum" />
+		<field column="BROWSE" type="long" indexField="browse" />
+		<field column="SHOP_CATEGORY_ID" type="string" indexField="shopgory" splitBy="," />
+		<field column="CATEGORY_ATTR_NAME_IS_NAV_CP" type="string" indexField="attrval_cp" splitBy="," />
+		<field column="CATEGORY_ATTR_VALUE_SS" type="string" indexField="sav_ss" splitBy="," />		
+	</fields>
+
+</dbcrawler>

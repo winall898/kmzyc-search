@@ -1,0 +1,81 @@
+body {
+	margin: 100px auto 0 auto;
+	font-family: Arial, Helvetica;
+	font-size: small;
+	background-color: #eee;
+}
+
+#every {
+	backgroud-color: #E7F6EA;
+}
+
+.saveBtn {
+	background: url("/etc/images/button/btn3.png") repeat scroll 0 0
+		transparent;
+	border: medium none;
+	cursor: pointer;
+	height: 30px;
+	text-align: center;
+	width: 68px;
+}
+
+#tabs {
+	overflow: hidden;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#tabs li{
+	display: block;
+	float: left;
+	font-size: 16px;
+	height: 30px;
+	line-height:30px;
+	margin-right: 5px ;
+	position: relative;
+	text-align: center;
+	width: 141px;
+	font-weight: bold;
+	cursor: pointer;
+	background: url("/etc/images/sys/tableftI.gif") no-repeat scroll left -42px transparent;
+	
+}
+
+#tabs li b{
+	display:block;
+	height: 30px;
+	width: 126px;
+	background:url("/etc/images/sys/tabrightI.gif") no-repeat scroll right -43px transparent;
+	margin-left:5px;
+}
+
+#tabs li.visit{
+	background-position: 0 top;
+}
+#tabs li.visit b{
+	background-position:100% top;
+	color:#FFFFFF;
+}
+
+#tabs li.hover{
+	background-position: 0 top;
+}
+#tabs li.hover b{
+	background-position:100% top;
+	color:#FFFFFF;
+}
+
+.input_style{
+	color:black;
+}
+
+#content {
+	border-top: 2px solid #336699;
+	padding: 10px;
+	width:1024px;
+}
+.edit_table{
+	margin:0px;
+}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+  
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"  
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"  
+  version="2.0">  
+      
+  <description>kmzyc functions library</description>  
+  <display-name>kmzyc functions</display-name>  
+  <tlib-version>1.0</tlib-version>  
+  <short-name>km</short-name>  
+  <uri>http://www.kmb2b.com/functions</uri>  
+    
+  <function>  
+    <name>prHead</name>  
+    <function-class>com.kmzyc.search.facade.jstl.PriceFunction</function-class>  
+    <function-signature>java.lang.String head(java.lang.Double)</function-signature>  
+  </function>
+  
+  <function>  
+    <name>prLast</name>  
+    <function-class>com.kmzyc.search.facade.jstl.PriceFunction</function-class>  
+    <function-signature>java.lang.String last(java.lang.Double)</function-signature>  
+  </function>
+  
+  <function>  
+    <name>prFmat</name>  
+    <function-class>com.kmzyc.search.facade.jstl.PriceFunction</function-class>  
+    <function-signature>java.lang.String formater(java.lang.String)</function-signature>  
+  </function>
+  
+  <function>  
+    <name>qsAdd</name>  
+    <function-class>com.kmzyc.search.facade.jstl.QueryStringFunction</function-class>  
+    <function-signature>java.lang.String add(java.lang.String, java.lang.String, java.lang.String)</function-signature>  
+  </function>
+  
+  <function>  
+    <name>qsRemove</name>  
+    <function-class>com.kmzyc.search.facade.jstl.QueryStringFunction</function-class>  
+    <function-signature>java.lang.String remove(java.lang.String, java.lang.String)</function-signature>  
+  </function>
+  
+  <function>  
+    <name>qsReplace</name>  
+    <function-class>com.kmzyc.search.facade.jstl.QueryStringFunction</function-class>  
+    <function-signature>java.lang.String replace(java.lang.String, java.lang.String, java.lang.String)</function-signature>  
+  </function>
+  
+  <function>  
+    <name>qsJoin</name>  
+    <function-class>com.kmzyc.search.facade.jstl.QueryStringFunction</function-class>  
+    <function-signature>java.lang.String join(java.lang.String, java.lang.String, java.lang.String)</function-signature>  
+  </function>
+  
+  <function>  
+    <name>fqAdd</name>  
+    <function-class>com.kmzyc.search.facade.jstl.QueryFilterFunction</function-class>  
+    <function-signature>java.lang.String addFilter(java.lang.String, java.lang.String, java.lang.String)</function-signature>  
+  </function>
+  
+  <function>  
+    <name>fqDel</name>  
+    <function-class>com.kmzyc.search.facade.jstl.QueryFilterFunction</function-class>  
+    <function-signature>java.lang.String delFilter(java.lang.String, java.lang.String)</function-signature>  
+  </function>
+  
+  <function>  
+    <name>fqDelVal</name>  
+    <function-class>com.kmzyc.search.facade.jstl.QueryFilterFunction</function-class>  
+    <function-signature>java.lang.String delFilter(java.lang.String, java.lang.String, java.lang.String)</function-signature>  
+  </function>
+  
+  <function>  
+    <name>fqContant</name>  
+    <function-class>com.kmzyc.search.facade.jstl.QueryFilterFunction</function-class>  
+    <function-signature>java.lang.String contant(java.lang.String, java.lang.String)</function-signature>  
+  </function>
+    
+</taglib>  

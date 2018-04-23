@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kmzyc.search.facade.dao.CategorysDao" >
+	
+	<!-- 根据ID获取类目名称 -->
+  	<select id="getCategoryNameById" parameterType="java.lang.Integer" resultType="java.lang.String">
+     	SELECT 
+    		t.CATEGORY_NAME as categoryName
+	    FROM 
+	    	CATEGORYS t
+	    WHERE 
+	    	t.CATEGORY_ID = #{categoryId}
+ 	</select>
+ 	
+ 	<!-- 根据ID获取店铺类目名称 -->
+  	<select id="getShopCategoryNameById" parameterType="java.lang.Integer" resultType="java.lang.String">
+     	SELECT 
+    		t.CATEGORY_NAME as categoryName
+	    FROM 
+	    	SHOP_CATEGORYS t
+	    WHERE 
+	    	t.SHOP_CATEGORY_ID = #{shopCategoryId}
+ 	</select>
+ 	
+</mapper>

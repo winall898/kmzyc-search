@@ -1,0 +1,60 @@
+{
+  "suggest": {
+    "properties": {
+      "id": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "source": {
+        "type": "string",
+        "copy_to": "suggest",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "lowterm": {
+        "type": "string",
+        "copy_to": "suggest",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "py": {
+        "type": "string",
+        "copy_to": "suggest",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "jp": {
+        "type": "string",
+        "copy_to": "suggest",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "count": {
+        "type": "integer",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "order": {
+        "type": "integer",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "channel": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "suggest": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": false
+      },
+      "_version_": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      }
+    }
+  }
+}

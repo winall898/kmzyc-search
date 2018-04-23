@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kmzyc.search.app.dao.SystemDao" >
+  	<resultMap id="menuResultMap" type="map" >
+	    <id column="MENU_ID" property="menuId"/>
+	    <result column="MENU_UPID" property="menuUpid"/>
+	    <result column="MENU_NAME" property="menuName"/>
+	    <result column="MENU_LINK" property="menuLink"/>
+	    <result column="MENU_LV" property="menuLv"/>
+	    <result column="IS_ENABLE" property="isEnable"/>
+	    <result column="MENU_ST" property="menuSt"/>
+	    <result column="MENU_IMG" property="menuImg"/>
+	    <result column="MENU_REMARK" property="menuRemark"/>
+	    <result column="SORTNO" property="sortNo"/>
+  	</resultMap>
+  	<resultMap id="userResultMap" type="map" >
+	    <id column="USER_ID" property="userId"/>
+	    <result column="DEPT_ID" property="deptId"/>
+	    <result column="USER_NAME" property="userName"/>
+	    <result column="USER_PWD" property="userPwd"/>
+	    <result column="USER_REAL" property="userReal"/>
+	    <result column="USER_SEX" property="userSex"/>
+	    <result column="USER_BIRTHDAY" property="userBirthday"/>
+	    <result column="USER_CARDNO" property="userCardno"/>
+	    <result column="USER_PHONE" property="userPhone"/>
+	    <result column="USER_MPHONE" property="userMphone"/>
+	    <result column="USER_IP" property="userIp"/>
+	    <result column="USER_ALIAS" property="userAlias"/>
+	    <result column="CHANNEL_NAME" property="channelName"/>
+  	</resultMap>
+  
+	<select id="getUpMenuList" resultMap="menuResultMap">
+	  	select 
+		  	distinct e.menu_id, 
+		  	e.menu_name, 
+		  	e.menu_link,
+		  	e.sortno
+	   	from 
+	   		sys_user a, 
+	   		sys_user_role b, 
+	   		sys_role c, 
+	   		sys_role_menu d, 
+	   		sys_menu e
+		where  
+			a.user_id = b.user_id   
+			and b.role_id = c.role_id   
+			and c.role_id = d.role_id    
+			and d.menu_id = e.menu_id    
+	       	and e.menu_lv = '1'  
+	       	and a.user_name = #{userName}  
+	       	and e.is_enable = '1'
+	       	order by e.sortno asc
+	</select>
+	
+	<select id="getSubMenuListByUserId" resultMap="menuResultMap">
+	  	select 
+		  	distinct e.menu_id, 
+		  	e.menu_upid,
+		  	e.menu_name, 
+		  	e.menu_link,
+		  	e.menu_lv,
+		  	e.is_enable,
+		  	e.menu_st, 
+		  	e.menu_img, 
+		  	e.menu_remark,
+		  	e.sortno
+    	from 
+    		sys_user a, sys_user_role b, sys_role c, sys_role_menu d, sys_menu e
+		where  
+			a.user_id = b.user_id   
+			and b.role_id = c.role_id   
+			and c.role_id = d.role_id    
+			and d.menu_id = e.menu_id
+			and e.is_enable = '1'
+	       	and a.user_id = #{userId}   
+	       	and e.menu_upid = #{topMenuId}
+    		order by e.sortno asc
+	</select>
+	
+	<select id="getUserInfo" resultMap="userResultMap">
+	  	select 
+	  		a.USER_ID, 
+	  		a.DEPT_ID, 
+	  		a.USER_NAME, 
+	  		a.USER_PWD, 
+	  		a.USER_REAL, 
+        	a.USER_SEX, 
+        	a.USER_BIRTHDAY, 
+        	a.USER_CARDNO,
+          	a.USER_PHONE, 
+          	a.USER_MPHONE, 
+          	a.USER_IP, 
+         	a.USER_ALIAS, 
+         	b.CHANNEL_NAME
+    	from 
+    		SYS_USER a, USER_CHANNEL b 
+    	where 
+    		a.USER_ID = b.USER_ID(+)
+    		and a.USER_NAME = #{userName}
+    		and rownum = 1
+	</select>
+	
+	<select id="getUserInfoByUserId" resultMap="userResultMap">
+	  	select 
+	  		a.USER_ID, 
+	  		a.DEPT_ID, 
+	  		a.USER_NAME, 
+	  		a.USER_PWD, 
+	  		a.USER_REAL, 
+        	a.USER_SEX, 
+        	a.USER_BIRTHDAY, 
+        	a.USER_CARDNO,
+          	a.USER_PHONE, 
+          	a.USER_MPHONE, 
+          	a.USER_IP, 
+         	a.USER_ALIAS, 
+         	b.CHANNEL_NAME
+    	from 
+    		SYS_USER a, USER_CHANNEL b 
+    	where 
+    		a.USER_ID = b.USER_ID(+)
+    		and a.USER_ID = #{userId}
+    		and rownum = 1
+	</select>
+	
+	<update id="updateUserPwd">
+	  	update 
+	  		SYS_USER
+	  	set
+	  		USER_PWD = #{newPwd}
+	  	where
+	  		USER_ID = #{userId}
+	</update>
+</mapper>

@@ -1,0 +1,143 @@
+{
+  "shop": {
+    "properties": {
+      "id": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "sid": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "shopName": {
+        "type": "string",
+        "copy_to": "text",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      },
+      "shopTitle": {
+        "type": "string",
+        "copy_to": "text",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      },
+      "shopType": {
+        "type": "integer",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "logoPath": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "introduce": {
+        "type": "string",
+        "copy_to": "text",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      },
+      "level": {
+        "type": "integer",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "domain": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "ssk": {
+        "type": "string",
+        "copy_to": "text",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      },
+      "manageBrand": {
+        "type": "string",
+        "copy_to": "text",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      },
+      "descScore": {
+        "type": "double",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "speedScore": {
+        "type": "double",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "distScore": {
+        "type": "double",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "saleScore": {
+        "type": "double",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "shopSite": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "audiTime": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis||date_time"
+      },
+      "corpName": {
+        "type": "string",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      },
+      "corpAddr": {
+        "type": "string",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      },
+      "contact": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "contacType": {
+        "type": "integer",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "province": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "city": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "area": {
+        "type": "string",
+        "index": "not_analyzed",
+        "store": true
+      },
+      "text": {
+        "type": "string",
+        "analyzer": "ik_syno_max",
+        "search_analyzer": "ik_syno_smart",
+        "store": true
+      }
+    }
+  }
+}

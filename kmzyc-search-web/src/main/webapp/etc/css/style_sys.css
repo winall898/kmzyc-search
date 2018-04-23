@@ -1,0 +1,619 @@
+body{margin:0px;padding:0px;font-size:12px; font-family: Arial,宋体;color:#000000;}
+body,form,table,ul,li,p,ol{margin:0;padding:0;}
+textarea{ background:#F9FAFC; border:1px solid #809db9; padding:5px; font-size:12px; }
+body{margin:0px;padding:0px;font-size:12px; font-family: Arial,宋体;color:#000000;}
+a{color:#1E64D5; text-decoration:underline;}
+img{border:0;}
+INPUT[type=text] {
+	BORDER: #C3C3C3 1px solid;  MARGIN-TOP: 0px;  LINE-HEIGHT: 16px;  HEIGHT: 16px;  WIDTH: 150px;
+}
+.clear{ clear:both;}
+
+/* -------- 页面顶端的 标题1 区域*/
+.pagetitle{
+    margin: 12px 0px 6px 18px; 
+	color: #0771D4; 
+	font:bold 16px "宋体"; 
+}
+
+/* -------- 页面顶端的 标题2 区域*/
+.pTitle{
+    margin: 12px 0px 6px 18px; 
+	width: 90%;
+}
+.pTitle .titleName{
+	float: left;
+    margin: 12px 0px 2px 18px; 
+	color: #B7B7B7; 
+	font:bold 16px "宋体";  
+}
+.pTitle .titleComment{
+    float: right;
+	margin: 12px 20px 2px 0px;
+	color: #A4A6A4; 
+	font: normal 13px "宋体"; 
+}
+.titleComment a{
+	color:#1E64D5; 
+	font: 12px "宋体";
+	text-decoration:none;
+}
+.titleComment a:hover {
+	color:#FFFFFF; 
+	background:#1E64D5;
+	PADDING: 3px  0px  2px  0px;
+	font: 12px "宋体";
+	text-decoration:none;
+}
+
+/* -------- 页面顶端的 标题3 区域*/
+.line_tit{ height:31px; width: 650px; line-height:23px; background:url(/etc/images/line_titbg.jpg) left bottom repeat-x; margin-top:12px; margin-left: 10px;}
+.line_tit h2{ background:url(/etc/images/icon_05.gif) left center no-repeat; margin:0px 11px 0px 15px; font-size:14px; padding-left:23px;}
+
+
+
+
+/* -------- 页面顶端的 按钮 区域*/
+.topbuttonbar{
+    margin-top:8px; margin-bottom: 10px;
+	padding:6px 0 4px 15px;
+	background:url("/etc/images/auction_bg_head.jpg") repeat-x;
+	font:bold 14px "宋体";
+	height:30px;
+	text-align:left;
+}
+.topbuttonbar a{
+	color:#1E64D5; 
+	font: 12px "宋体";
+	text-decoration:none;
+}
+.topbuttonbar a:hover {
+	color:#FFFFFF; 
+	background:#1E64D5;
+	PADDING: 3px  0px  2px  0px;
+	font: 12px "宋体";
+	text-decoration:none;
+}
+
+/* --------  查询条件 区域 search area */
+.searcharea {
+	margin-top: 5px; 
+	PADDING: 8px 0px 8px 15px;
+    BORDER: #808080 0px solid; BORDER-top: #808080 1px solid; BORDER-bottom: #808080 0px solid;
+	background-color:#F4FAFC;
+	font-size:12px;
+}
+.searcharea td {
+	padding-left: 4px;
+}
+
+/* -------- table 表格样式*/
+/* 列表表格 白底色 焦点黄色*/
+.tableStyle1{
+	  vertical-align:middle;
+	  text-align:center;
+      border-collapse: collapse;
+      border: 1px solid #C8D9CF;
+      margin-top: 5px;
+}
+.tableStyle1 th{
+    border: 1px solid #C8D9CF;
+	background-color: #BFDFCA; 
+	color: #636862; 
+	font-size:14;
+	font-weight: bold; 
+	text-align: center;
+}
+.tableStyle1 tr{
+    border: 1px solid #C8D9CF;
+    text-align: center;
+}
+.tableStyle1 td{
+    border: 1px solid #C8D9CF;
+    text-align: center;
+    color:#606060;
+}
+.tableStyle1 tr:nth-child(even){
+   background-color: #EEF9F3;		 
+}
+/*
+.tableStyle1 { margin-top: 5px;
+                   border-collapse: collapse;
+                   border: 1px solid #C8D9CF;
+                   text-align:center;
+                   }
+.tableStyle1 th { 
+	border: 1px solid #C8D9CF;
+	background-color: #BFDFCA; 
+	color: #636862; 
+	font-weight: bold; }
+.tableStyle1 tr {
+	border: 1px solid #C8D9CF;
+}
+.tableStyle1  tr:nth-child(even){
+   background-color: #EEF9F3;		 
+}
+.tableStyle1 td{
+    	border: 1px solid #C8D9CF;
+}
+.tableStyle1 .td_gray{ background-color: #F2F2F2; color: black;  font-weight: normal; }
+*/
+
+/* 列表表格 黄底色 焦点白色*/
+.tableStyle2 { margin-top: 5px; background-color:#FFFFCC; border-collapse: collapse; }
+.tableStyle2 th { background-color: #E2EAED; color: #3D5765; font-weight: normal; padding: 10px 2px 6px 2px}
+.tableStyle2 tr {
+	event:expression( 
+			  onmouseover=function(){ this.style.background='#FFFFFF'; } ,
+			  onmouseout =function(){ this.style.background='#FFFFCC'; }
+	);
+}
+.tableStyle2 td { padding: 10px 2px 4px 6px; }
+.tableStyle2 .td_gray{ background-color: #F2F2F2; color: black;  font-weight: normal;  padding: 10px 2px 4px 6px;}
+
+
+
+/* 输入表格 */
+.tableInput1 {
+	margin-top: 15px; margin-bottom: 15px;
+	background-color:#f2f8ff;
+    border-collapse: collapse;
+}
+.tableInput1 th {
+	color:#9E9E9E;
+    font-weight:normal;
+	padding-right: 6px;
+	height: 17px;
+}
+.tableInput1 td {
+	color:#9E9E9E;
+	padding-left: 8px;
+	height: 17px;
+}
+.tableInput1 th.modeltitle {
+    background-color: #DBE4ED;
+	height: 18px;
+	color:#000000;
+    font-weight:bold;
+	padding-left: 20px;
+}
+
+/* detail 页面上方信息表格 */
+.tableInput2 {
+	margin-top: 15px; margin-bottom: 15px;
+	color:#8A8A8A;
+    border-collapse: collapse;
+}
+.tableInput2 th.modeltitle {
+    background-color: #F6F6F6;
+	height: 18px;
+	color: #000000;
+    font-weight:bold;
+	padding-left: 20px;
+}
+
+
+/* detail 页面 tabs */
+.tabsBar {
+	MARGIN: 0px 0px 0px 2px; 
+	padding-top: 12px; padding-left: 28px; 
+    BORDER-BOTTOM: #cecece 1px solid;
+	border-top: 1px solid #ADC3DE;
+	background-color: #D6E7FF;
+}
+.tabsBar .lifocus {
+	display: inline;
+	MARGIN-right: 20px  ;
+	BORDER-TOP: #cecece 1px solid;  BORDER-LEFT: #cecece 1px solid; BORDER-RIGHT: #cecece 1px solid; 
+	BORDER-BOTTOM: #FFFFFF 1px solid;
+	PADDING: 8px 8px 2px 12px; 
+	BACKGROUND: #FFFFFF; 
+	cursor: hand;
+	font-size: 13px; font-weight: normal; 
+	Z-INDEX: 100;
+}
+.tabsBar .linofocus{
+	display: inline;
+	MARGIN-right: 20px  ;
+	BORDER-TOP: #cecece 1px solid;  BORDER-LEFT: #cecece 1px solid; BORDER-RIGHT: #cecece 1px solid; 
+	BORDER-BOTTOM: #FFFFFF 1px solid;
+	PADDING: 8px 8px 2px 12px; 
+	BACKGROUND: #E4E4E4; 
+	cursor: hand;
+	font-size: 13px; font-weight: normal; 
+	Z-INDEX: 100;
+}
+
+
+
+
+
+/* -------- image 图片 样式 */ 
+/* img  带浅蓝色边框的 im g输入框 */
+.img_style {
+	BORDER-RIGHT: #809db9 1px solid; PADDING-RIGHT: 6px; BORDER-TOP: #809db9 1px solid; PADDING-TOP: 6px; PADDING-LEFT: 6px; BORDER-LEFT: #809db9 1px solid;  PADDING-BOTTOM: 6px; BORDER-BOTTOM: #809db9 1px solid; BACKGROUND: #fff; LEFT: 0px; POSITION: relative; TOP: 0px; 
+}
+
+
+
+
+/* --------  button 绿色 页面上方按钮条上的按钮 */
+.btngreen {
+    margin: 0;
+	BORDER: #397118 1px solid; 
+	PADDING-RIGHT: 6px; PADDING-LEFT: 6px;  PADDING-BOTTOM: 2px; PADDING-TOP: 2px; 
+	BACKGROUND-COLOR: #336699;
+	FONT-SIZE: 0.9em;
+	color: #fff
+}
+.btngreen:hover {
+	BACKGROUND: #e6e6e6; CURSOR: pointer; color: #000
+}
+
+.btngray {
+	margin: 0;
+	BORDER: #808080 1px solid; 
+	PADDING-RIGHT: 6px; PADDING-LEFT: 6px;  PADDING-BOTTOM: 2px; PADDING-TOP: 2px;
+    FONT-SIZE: 0.9em;
+	BACKGROUND-COLOR: #E4E4E4
+}
+.btngray:hover {
+	 CURSOR: pointer
+}
+
+
+.btn_green {
+	BORDER-RIGHT: #397118 1px solid; PADDING-RIGHT: 8px; BORDER-TOP: #397118 1px solid; PADDING-LEFT: 8px; FONT-SIZE: 1em; PADDING-BOTTOM: 0px; BORDER-LEFT: #397118 1px solid; PADDING-TOP: 3px; BORDER-BOTTOM: #397118 1px solid; BACKGROUND-COLOR: #63A64A;
+	color: #fff
+}
+.btn_green:hover {
+	BACKGROUND: #e6e6e6; CURSOR: pointer; color: #000
+}
+
+.btn_gray {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 8px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 8px; FONT-SIZE: 1em; PADDING-BOTTOM: 0px; BORDER-LEFT: #ccc 1px solid; PADDING-TOP: 4px; BORDER-BOTTOM: #ccc 1px solid; BACKGROUND-COLOR: #e6e6e6
+}
+.btn_gray:hover {
+	BACKGROUND: #999; CURSOR: pointer
+}
+
+
+/* -------- button 内容页面的button样式 */
+.button-mark1 { /*适用于2个字有标示按钮*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/mark1.gif);
+	height: 21px;
+	width: 120px;
+}
+.button-mark2 { /*适用于2个字有标示按钮*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/mark2.gif);
+	height: 21px;
+	width: 120px;
+}
+.button-1 { /*适用于1个字有标示按钮*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/button_1z.gif);
+	height: 20px;
+	width: 21px;
+}
+.button-2s { /*适用于2个字有标示按钮*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/button-2z.gif);
+	height: 20px;
+	width: 55px;
+}
+.button-2 { /*适用于2个字无标示按钮*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/button_2z.gif);
+	height: 20px;
+	width: 55px;
+}
+.button-3s { /*适用于3个字有标示按钮*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/button-3z.gif);
+	height: 20px;
+	width: 65px;
+}
+.button-3 { /*适用于3个字无标示按钮*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/button_3z.gif);
+	height: 20px;
+	width: 65px;
+}
+.button-4s { /*适用于4个字有标示按钮*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/button-4z.gif);
+	height: 20px;
+	width: 75px;
+}
+.button-4 { /*适用于4个字无标示按钮*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/button_4z.gif);
+	height: 20px;
+	width: 75px;
+}
+
+.button-5s { /*适用于5个字有标示按钮*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/button-5z.gif);
+	height: 19px;
+	width: 85px;
+}
+.button-5 { /*适用于5个字无标示按钮*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/button_5z.gif);
+	height: 19px;
+	width: 85px;
+}
+
+.button-6s { /*适用于6个字有标示按钮*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/button-6z.gif);
+	height: 19px;
+	width: 97px;
+}
+.button-6 { /*适用于6个字无标示按钮*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/button_6z.gif);
+	height: 19px;
+	width: 97px;
+}
+.button-8s { /*适用于8个字有标示按钮*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/button-8z.gif);
+	height: 19px;
+
+	width: 117px;
+}
+.button-8 { /*适用于8个字无标示按钮*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/button_8z.gif);
+	height: 19px;
+	width: 117px;
+}
+
+.button-black { /*适用于4个字无标示按钮,背景灰色*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/black_1.gif);
+	height: 19px;
+	width: 73px;
+}
+
+.button-blue-1 { /*适用于4个字无标示按钮,背景蓝色*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/blue_1.gif);
+	height: 19px;
+	width: 73px;
+}
+.button-blue-1:hover { /*鼠标移过，变色*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/blue_2.gif);
+	height: 19px;
+	width: 73px;
+}
+
+.button-blue-4 { /*适用于4个字无标示按钮,背景深蓝色*/
+	font-size: 12px;
+	color: #333333;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/blue_2.gif);
+	height: 19px;
+	width: 73px;
+}
+
+.button-blue-2 { /*适用于2个字无标示按钮*/
+	font-size: 12px;
+	color: #FFFFFF;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/92.gif);
+	height: 20px;
+	width: 44px;
+}
+
+
+.button-orage-4 { /*适用于4个字无标示按钮,背景橙色*/
+	font-size: 12px;
+	color: #FFFFFF;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/121.gif);
+	height: 22px;
+	width: 80px;
+}
+
+
+
+.button1-mini3 { /*Word for a small button on the 2*/
+	font-size: 12px;
+	color: #FFFFFF;
+	border-top: 0px solid #EFEFEF;
+	border-right: 0px solid #999999;
+	border-bottom: 0px solid #EFEFEF;
+	border-left: 0px solid #EFEFEF;
+	text-decoration: none;
+	FONT-FAMILY: "Tahoma", "Arial", "新宋体", "宋体";
+	cursor: hand;
+	background-image: url(/etc/images/button/mini_bt_03.gif);
+	height: 20px;
+	width: 44px;
+}
+
+
+
+
+
+/*================================  97 dater  ================================*/
+
+.Wdate{
+	border:#999 1px solid;
+	height:20px;
+	background:#fff url(datePicker.gif) no-repeat right;
+}
+
+.WdateFmtErr{
+	font-weight:bold;
+	color:red;
+}
+

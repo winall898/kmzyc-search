@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dbcrawler>
+	<database>
+			<driverClassName>oracle.jdbc.driver.OracleDriver</driverClassName>
+			<dbURL>jdbc:oracle:thin:@10.1.6.245:1521:orcl</dbURL>
+			<username>kmopr</username>
+			<password>kmopr</password>
+			<querySql>
+				SELECT si.id,
+				       si.market_id,
+				       mm.market_name,
+				       si.category_id,
+				       cs.category_name,
+				       si.specifications_id,
+				       ca1.category_attr_value as specifications,
+				       si.place_id,
+				       ca2.category_attr_value as place
+				  from supply_info         si,
+				       medicine_market     mm,
+				       category_attr_value ca1,
+				       category_attr_value ca2,
+				       categorys           cs
+				 where si.market_id = mm.market_id(+)
+				   and si.specifications_id = ca1.category_attr_value_id(+)
+				   and si.place_id = ca2.category_attr_value_id(+)
+				   and si.category_id = cs.category_id(+)
+			</querySql>
+			<pageSize>500</pageSize>
+	</database>
+	
+	<!-- true ,whole ; false, increment -->	
+	<whole>true</whole>
+		
+	<esIndex>	
+		<indexDB>supply</indexDB>
+		<indexType>supply</indexType>
+		<indexId>id</indexId>
+	</esIndex>
+	
+	<fields>
+		<field column="ID" 	 type="long"    indexField="id" />
+		<field column="MARKET_ID" 	 type="long"    indexField="marketId" />
+		<field column="MARKET_NAME" 	 type="string"    indexField="marketName" />
+		<field column="CATEGORY_ID" 	 type="long"    indexField="categoryId" />
+		<field column="CATEGORY_NAME" 	 type="string"    indexField="categoryName" />
+		<field column="SPECIFICATIONS_ID" 	 type="long"    indexField="specificationsId" />
+		<field column="SPECIFICATIONS" 	 type="string"    indexField="specifications" />
+		<field column="PLACE_ID" 	 type="long"    indexField="placeId" />
+		<field column="PLACE" 	 type="string"    indexField="place"/>
+	</fields>
+
+</dbcrawler>

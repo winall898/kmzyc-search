@@ -1,0 +1,29 @@
+body,ul,li{margin:0px;padding:0px;font:12px ËÎÌו,Arial,Verdana;}
+
+.tab{
+	margin-top:30px;
+	border-collapse:collapse;
+	border:none;
+}
+
+.tab td{
+	border:solid #797979 1px;
+}
+
+.cleantb{border:none;}
+
+.cleantb td{border:none}
+
+
+.tabaa{
+	border-collapse:collapse;
+	border:none;
+}
+
+.tabaa td{
+	border:solid #797979 1px;
+}
+
+
+
+

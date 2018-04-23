@@ -1,0 +1,23 @@
+body,ul,li{margin:0px;
+padding:0px;
+font-faminly:"ËÎÌו";
+font-size:12px;}
+
+.tab{
+	border-collapse:collapse;
+	border:none;
+}
+
+.tab td{
+	border:solid #797979 1px;
+}
+
+.go_top{
+	margin-top:30px;
+}
+
+
+
+
+
+
